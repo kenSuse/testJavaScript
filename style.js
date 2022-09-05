@@ -1,3 +1,320 @@
+// let text = "пРивет Как Дела?"
+// let textoLowerCase = text.toLowerCase();
+// let textArray = text[0]
+// let textToUpperCase = textArray.toUpperCase();
+// let textSlice = textoLowerCase.slice(1);
+// let textEnd = textToUpperCase + textSlice;
+// console.log(textEnd);
+
+// let text2 = "пРивет Как Дела?"
+// let textoLowerCase = text2.toLowerCase().slice(1);
+// let textoUpperCase = text2[0].toUpperCase();
+// let textEnd = textoUpperCase + textoLowerCase;
+
+// let text2End = text2[0].toUpperCase() + text2.toLowerCase().slice(1);
+// console.log(text2End);
+
+// let result = function getNamber(namber1, namber2) {
+//     return namber1 + namber2;
+// }
+// console.log(result(2,6));
+
+// function getNamber(namber1, namber2) {
+//     console.log(namber1 * namber2);
+// }
+//
+// getNamber(4,6);
+
+//Создали объект cat внутри которого есть пара, ключ и значение.Ключ это - "name", а значение это - "garmonia"
+// let cat = {
+//     "legs": 4,
+//     "name": "garmonia",
+//     "age": 6,
+//     "color": "grey"
+// };
+
+// let cat = {
+//     name: "garmonia",
+//     age: 6,
+//     color: "gray"
+// };
+//
+// console.log(cat.name);
+
+// let dog = {
+//     name: "Оладушек",
+//     age: 6,
+//     color: "Белый",
+//     bark: "Гав тяф тяф!"
+// };
+//
+// let cat = {
+//     name: "garmonia",
+//     age: 8,
+//     color: "Черепаховый"
+// };
+// console.log(Object.keys(dog));
+// console.log(Object.keys(cat));
+
+// let cat = {};
+// cat['legs'] = 3;
+// cat['name'] = "garmonia";
+// cat['color'] = 'Черепаховый';
+// console.log(Object.keys(cat));
+
+// let cat = {};
+// cat.legs = 3;
+// cat.name = "garmonia";
+// cat.color = "Черепаховый";
+// console.log(cat);
+// console.log(Object.keys(cat));
+
+// let dinosaurs = [
+//     {name: "reks", period: "verh"},
+//     {name: "Stegozavr", period: "verhneurski"},
+//     {name: "plateozavr", period: "trisovi"}
+// ];
+//
+// console.log(dinosaurs[0].name);
+//
+// let dog = [];
+// dog.push ("Один");
+// dog.push ("Два");
+// dog.push ("Три");
+//
+// console.log(dog);
+
+// let anna = {name: "Anna", age: 20, luckyNumbers: [2, 4, 8, 16]};
+// let dave = {name: "Dave", age: 18, luckyNumbers: [3, 9, 40]};
+// let kate = {name: "Kate", age: 22, luckyNumbers: [1, 2, 3]};
+//
+// let friends = [anna, dave, kate];
+//
+// console.log(friends[1].luckyNumbers[2]);
+
+
+// let oweMoney = {};
+// oweMoney["Джимми"] = 5;
+// oweMoney["Анна"] = 7;
+// oweMoney.Катя = 9;
+// console.log(oweMoney["Джимми"]);
+// oweMoney.Джимми += 3;
+// console.log(oweMoney["Джимми"]);
+// console.log(oweMoney);
+
+
+// let movies = {
+//     Немо: {
+//         releaseDate: 2003,
+//         duration: 100,
+//         actors: ["Albert", "Ellen"],
+//         format: "DVD"
+//     },
+//     "Звездные войны": {
+//         releaseDate: 1983,
+//         duration: 134,
+//         actors: ["MArk", "Ford", "Fisher"],
+//         format: "DVD"
+//     },
+//     "Гарри Поттер": {
+//         releaseDate: 2005,
+//         duration: 157,
+//         actors: ["Den", "Emma", "Grint"],
+//         format: "Blu-ray"
+//     }
+// };
+//
+// let car = {
+//     releaseDate: 2006,
+//     duration: 117,
+//     actors: ["Ilson", "Xant", "Pol"],
+//     format: "Blu-ray"
+// }
+//
+// movies["Тачки"] = car;
+//
+// console.log(Object.keys(movies));
+
+
+// let scores = {};
+// scores["Anna"] = 0;
+// scores["Kate"] = 0;
+// scores["Dave"] = 0;
+// scores.Anna += 3;
+// scores.Kate += 2;
+// scores.Dave += 5;
+// console.log(scores);
+
+
+// let myCrazyObject = {
+//     "name": "Нелепый объект",
+//     "some array": [7, 9, {purpose: "путаница", number: 123}, 3.3],
+//     "random animal": "Банановая акула"
+// };
+//
+// console.log(myCrazyObject["some array"][2].number);
+
+
+// let x = 123;
+// let a = String(x);
+// console.log(a);
+// console.log(typeof a);
+
+// let date = new Date();
+// console.log(date);
+// console.log(typeof date);
+// console.log(date.length);
+
+// let x = 5;
+// let a = x.toString(x);
+// console.log(a);
+// console.log(typeof(a));
+
+// let x = "5";
+// let y = "6";
+// let a = Number(x);
+// let b = parseInt(y);
+// console.log(a);
+// console.log(typeof(a));
+// console.log(b);
+// console.log(typeof(b));
+
+
+// let randomNumer = Math.trunc(Math.random() * 10 + 1);
+// console.log(randomNumer);
+
+// const result = "I like \"Star wars\" movie";
+// const ferstName = "Suse";
+// const lastName = "Ken";
+
+// console.log(result);
+// console.log(result.length);
+// console.log(result.slice(7));
+// console.log(typeof(result));
+//
+// console.log(lastName.concat(ferstName));
+// console.log(result.toUpperCase());
+// console.log(result.toLowerCase());
+
+// console.log(ferstName[2]);
+// console.log(ferstName.charAt(2));
+// console.log(result.indexOf('s'));
+// console.log(result.charAt(16));
+
+// const longString = 'Hi, I\'m a long string'
+//
+// let result = longString.charAt(longString.length - 1);
+// let x = longString.length;
+// console.log(longString);
+// console.log(result);
+// console.log(x);
+//
+// console.log(longString.substring(10, 14));
+// console.log(longString.split(' '));
+
+// const colors = 'red, orange, green, blue';
+// let colorsGame = colors.split(',');
+// console.log(colorsGame);
+// console.log(colorsGame[2]);
+//
+// console.log(colors.replace('red', 'yellow'));
+
+// let result = colors.includes('grey');
+//
+// console.log(result);
+
+
+
+
+// // Шаблонные строки new approach (template literals or template strings)
+//
+// const brand = 'Toyota';
+// const model = 'Camry';
+// const color = 'black';
+// const year = '2008';
+//
+// let carHtml;
+//
+// carHtml = `
+//     <h3>Car Description</h3>
+//     <ul>
+//         <li>Brand: ${brand}</li>
+//         <li>Model: ${model}</li>
+//         <li>Color: ${color}</li>
+//         <li>Year: ${year}</li>
+//         <li>TestNumber: ${10 + 7}</li>
+//         <li>DoorNumver: ${getDoorsNumver()}</li>
+//         <li>Tax: ${year < 2010 ? '20%' : '10%'}</li>
+//     </ul>
+// `
+// function getDoorsNumver () {
+//     return 5;
+// }
+// document.body.innerHTML = carHtml;
+//
+//
+// // Конец примера шаблонных строк.
+
+
+
+// const myFavoritCalor = 'yellow';
+// alert('My favorite color is ' + myFavoritCalor);
+
+// let myFavoritCalor;
+// myFavoritCalor = prompt('Whot you Favorits colors?');
+// console.log(myFavoritCalor);
+
+// let firstName;
+// let lastName;
+// let age;
+//
+// firstName = prompt('What is your first name?');
+// lastName = prompt('What is your last name?');
+// age = prompt('What is your age?');
+// console.log('My first name: ' + firstName + ', my last name: ' + lastName + ', my age: ' + age);
+
+//
+// let result;
+//
+// const height = prompt('Your height?');
+// const weight = prompt('Your wihgt?');
+//
+// const growthSquared = Math.pow(height, 2);
+// const resultToFixed = weight / growthSquared;
+//
+// result = resultToFixed.toFixed(2);
+//
+// const areYouOverweight = result >= 25;
+// console.log(areYouOverweight);
+//
+// if(result < 25) {
+//     console.log('your to norm');
+// } else console.log('your fat');
+//
+// alert('Ваша масса тела: ' + result);
+
+
+// const age = 18;
+// const result = prompt('You age?');
+// const resultAge = result >= age ? 'You are drink' : 'You are not drink';
+// alert(resultAge);
+// console.log(resultAge);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let age;
 // let accompanied = true;
 //
