@@ -294,25 +294,6 @@
 // alert('Ваша масса тела: ' + result);
 
 
-// const age = 18;
-// const result = prompt('You age?');
-// const resultAge = result >= age ? 'You are drink' : 'You are not drink';
-// alert(resultAge);
-// console.log(resultAge);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // let age;
@@ -581,7 +562,43 @@
 
 
 
-const normalAge = 18;
-const age = prompt('Enter you age');
-const result = age >= normalAge ? alert('You can buy the alcohol') : alert('You can not buy the alcohol, you are too young');
-console.log(`You can ${age >= normalAge ? 'buy the alhogol' : 'not buy the alcohol, you are too young'}`);
+// const normalAge = 18;
+// const age = prompt('Enter you age');
+// const result = age >= normalAge ? alert('You can buy the alcohol') : alert('You can not buy the alcohol, you are too young');
+// console.log(`You can ${age >= normalAge ? 'buy the alhogol' : 'not buy the alcohol, you are too young'}`);
+
+
+// const age = 18;
+// const result = prompt('You age?');
+// const resultAge = result >= age ? 'You are drink' : 'You are not drink';
+// alert(resultAge);
+// console.log(resultAge);
+
+
+
+
+
+
+// 'use strict' //активация строгого режима (Strict mode)
+// let sertificat = false;
+// const exam = true;
+// if(exam) sertificat = true;
+// if(sertificat) console.log('WOW!')
+
+
+
+
+//Среднее значение вычисляется путем сложения всех элементов, а затем деления на количество элементов.
+const arrayDept1 = [35467, 29842, 38501];
+const arrayDept2 = [70533, 50121, 33899];
+
+function getArrayDept() {
+    let resultNamber = 0;
+    for(let x = 0; x < arrayDept1.length; x++) {
+    resultNamber += arrayDept1[x];
+    }
+    let result = resultNamber / arrayDept1.length;
+    return result;
+}
+const getresult = getArrayDept(arrayDept1);
+console.log(getresult);
