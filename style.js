@@ -721,9 +721,11 @@
 // const result = printBonus(35467, 29842, 38501, 35467, 50121, 38501);
 // console.log(result);
 
-const getAverage = (month1, month2, month3) => (month1 + month2 + month3) / 3;
+
+
 //Expression. функция вызывается после её создания. const printBonus = function (dep1Aversales, dep2Aversales) {}
 //Declaration. Функция вызывается до её создания. function printBonus(dep1Aversales, dep2Aversales) {}
+const getAverage = (month1, month2, month3) => (month1 + month2 + month3) / 3;
 function printBonus(dep1Aversales, dep2Aversales) {
     let c = 0;
     let p = 0;
