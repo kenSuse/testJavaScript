@@ -1,3 +1,12 @@
+// //Преобразовать строку в число или число в строку
+// const number = Number('80');
+// console.log(number);
+// const string = String('80');
+// console.log(string);
+
+
+
+
 // let text = "пРивет Как Дела?"
 // let textoLowerCase = text.toLowerCase();
 // let textArray = text[0]
@@ -589,16 +598,164 @@
 
 
 //Среднее значение вычисляется путем сложения всех элементов, а затем деления на количество элементов.
-const arrayDept1 = [35467, 29842, 38501];
-const arrayDept2 = [70533, 50121, 33899];
+// const arrayDept1 = [35467, 29842, 38501];
+// const arrayDept2 = [70533, 50121, 33899];
+//
+// function getArrayDept() {
+//     let resultNamber = 0;
+//     for(let x = 0; x < arrayDept1.length; x++) {
+//     resultNamber += arrayDept1[x];
+//     }
+//     let result = resultNamber / arrayDept1.length;
+//     return result;
+// }
+// const getresult = getArrayDept(arrayDept1);
+// console.log(getresult);
 
-function getArrayDept() {
-    let resultNamber = 0;
-    for(let x = 0; x < arrayDept1.length; x++) {
-    resultNamber += arrayDept1[x];
+
+
+
+
+//Метод Math.floor() - Округляет аргумент до ближайшего меньшего целого
+
+
+
+//Функции
+
+// function printText() {
+//     console.log('Hello!');
+// }
+// printText();
+// printText();
+// printText();
+
+
+// function colorizer(item, color, colorCode) {
+//     const colorizedItem = `The ${item} is ${color}. The code of the color is ${colorCode}`;
+//     return colorizedItem;
+// }
+// const messegeFrromCororizer = colorizer('desk', 'green', 954565);
+// console.log(`We have the following message: ${messegeFrromCororizer}`);
+// const messegeFrromCororizer2 = colorizer('desk', 'red', 459632);
+// console.log(`We have the following message: ${messegeFrromCororizer2}`);
+
+
+
+
+
+
+
+//Declaration vs Expression
+
+//Declaration Функция может быть вызвана до того как она была задекларирована (В случае если это действительно необходимо)
+// const myAge1 = getAge1(1986, 2022);
+// console.log(myAge1);
+
+// function getAge1(birthYear, yearNow) {
+//     return yearNow - birthYear;
+// }
+
+// //Expression Функция вызывается после её определения.
+// const getAge2 = function(birthYear, yearNow) {
+//     return yearNow - birthYear;
+// }
+// const myage2 = getAge2(1986, 2022);
+// console.log(myage2);
+
+
+//Стрелочные функции
+// const getAge3 = (birthYear, yearNow) => yearNow - birthYear;
+// const myAge3 = getAge3(1986, 2022);
+// console.log(myAge3);
+//
+// const canBuyAlcohol = (birthYear, yearNow) => {
+//     const age = yearNow - birthYear;
+//     const isPersonOlderThan18 = age >= 18 ? true : false;
+//     return isPersonOlderThan18;
+// }
+// const resultAge = canBuyAlcohol(2006, 2022);
+// console.log(resultAge);
+
+//Вызов функции в другой функции
+// function colorMixer(color1, color2) {
+//     const newColor = `The ${color1} is ${color2}`;
+//     return newColor;
+// }
+// function colorizer(item, color1, color2) {
+//     const color = colorMixer(color1, color2);
+//     const colorizedItem = `The ${item} is: ${color}.`;
+//     return colorizedItem;
+// }
+// const resultColor = colorizer('car', 'red', 'orange');
+// console.log(resultColor);
+// console.log(colorizer('house', ' white', 'grey'));
+
+//Задача отдела продаж
+// const getAverage = (month1, month2, month3) => (month1 + month2 + month3) / 3;
+//
+// function printBonus(month1, month2, month3, month4, month5, month6) {
+//     const dep1Aversales = getAverage(month1, month2, month3);
+//     const dep2Aversales = getAverage(month4, month5, month6);
+//     console.log(dep1Aversales);
+//     console.log(dep2Aversales);
+//     let c = 0;
+//     let p = 0;
+//     let integerNumber = 0;
+//     if (dep1Aversales > dep2Aversales) {
+//         c = dep1Aversales - dep2Aversales;
+//         p = c / dep2Aversales * 100;
+//
+//         integerNumber = Math.floor(p);
+//         if (integerNumber > 30) {
+//             return `Отдел 1 получил бонус в размере ${integerNumber}%`
+//         } else return 'Лидирующего отдела нет.'
+//     } else if (dep2Aversales > dep1Aversales) {
+//         c = dep2Aversales - dep1Aversales;
+//         p = c / dep1Aversales * 100;
+//         integerNumber = Math.floor(p);
+//         if (integerNumber > 30) {
+//             return `Отдел 2 получил бонус в размере ${integerNumber}%`
+//         } else return 'Лидирующего отдела нет.'
+//     } else return 'Лидирующего отдела нет.'
+// }
+// const result = printBonus(35467, 29842, 38501, 35467, 50121, 38501);
+// console.log(result);
+
+const getAverage = (month1, month2, month3) => (month1 + month2 + month3) / 3;
+//Expression. функция вызывается после её создания. const printBonus = function (dep1Aversales, dep2Aversales) {}
+//Declaration. Функция вызывается до её создания. function printBonus(dep1Aversales, dep2Aversales) {}
+function printBonus(dep1Aversales, dep2Aversales) {
+    let c = 0;
+    let p = 0;
+    let integerNumber = 0;
+    if (dep1Aversales > dep2Aversales) {
+        c = dep1Aversales - dep2Aversales;
+        p = c / dep2Aversales * 100;
+        integerNumber = Math.floor(p);
+        if (integerNumber >= 30) {
+            return `Отдел 1 получил бонус в размере ${integerNumber}%`
+        } else {
+            return `Отрыв у отдела 1 составил ${integerNumber}%.`
+        }
+    } else if (dep2Aversales > dep1Aversales) {
+        c = dep2Aversales - dep1Aversales;
+        p = c / dep1Aversales * 100;
+        integerNumber = Math.floor(p);
+        if (integerNumber >= 30) {
+            return `Отдел 2 получил бонус в размере ${integerNumber}%`
+        } else {
+            return `Отрыв менее у отдела 2 составил ${integerNumber}%.`
+        }
+    } else {
+        return 'Лидирующего отдела нет.'
     }
-    let result = resultNamber / arrayDept1.length;
-    return result;
 }
-const getresult = getArrayDept(arrayDept1);
-console.log(getresult);
+const dep1Aversales1 = getAverage(35467, 29842, 38501);
+const dep2Aversales1 = getAverage(70533, 50121, 33899);
+const dep1Aversales2 = getAverage(50301, 21984, 19207);
+const dep2Aversales2 = getAverage(72381, 41562, 29465);
+const result1 = printBonus(dep1Aversales1, dep2Aversales1);
+const result2 = printBonus(dep1Aversales2, dep2Aversales2);
+console.log(result1);
+console.log(result2);
+
