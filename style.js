@@ -725,39 +725,144 @@
 
 //Expression. функция вызывается после её создания. const printBonus = function (dep1Aversales, dep2Aversales) {}
 //Declaration. Функция вызывается до её создания. function printBonus(dep1Aversales, dep2Aversales) {}
-const getAverage = (month1, month2, month3) => (month1 + month2 + month3) / 3;
-function printBonus(dep1Aversales, dep2Aversales) {
-    let c = 0;
-    let p = 0;
-    let integerNumber = 0;
-    if (dep1Aversales > dep2Aversales) {
-        c = dep1Aversales - dep2Aversales;
-        p = c / dep2Aversales * 100;
-        integerNumber = Math.floor(p);
-        if (integerNumber >= 30) {
-            return `Отдел 1 получил бонус в размере ${integerNumber}%`
-        } else {
-            return `Отрыв у отдела 1 составил ${integerNumber}%.`
-        }
-    } else if (dep2Aversales > dep1Aversales) {
-        c = dep2Aversales - dep1Aversales;
-        p = c / dep1Aversales * 100;
-        integerNumber = Math.floor(p);
-        if (integerNumber >= 30) {
-            return `Отдел 2 получил бонус в размере ${integerNumber}%`
-        } else {
-            return `Отрыв менее у отдела 2 составил ${integerNumber}%.`
-        }
-    } else {
-        return 'Лидирующего отдела нет.'
-    }
-}
-const dep1Aversales1 = getAverage(35467, 29842, 38501);
-const dep2Aversales1 = getAverage(70533, 50121, 33899);
-const dep1Aversales2 = getAverage(50301, 21984, 19207);
-const dep2Aversales2 = getAverage(72381, 41562, 29465);
-const result1 = printBonus(dep1Aversales1, dep2Aversales1);
-const result2 = printBonus(dep1Aversales2, dep2Aversales2);
-console.log(result1);
-console.log(result2);
 
+// const getAverage = (month1, month2, month3) => (month1 + month2 + month3) / 3;
+// function printBonus(dep1Aversales, dep2Aversales) {
+//     let c = 0;
+//     let p = 0;
+//     let integerNumber = 0;
+//     if (dep1Aversales > dep2Aversales) {
+//         c = dep1Aversales - dep2Aversales;
+//         p = c / dep2Aversales * 100;
+//         integerNumber = Math.floor(p);
+//         if (integerNumber >= 30) {
+//             return `Отдел 1 получил бонус в размере ${integerNumber}%`
+//         } else {
+//             return `Отрыв у отдела 1 составил ${integerNumber}%.`
+//         }
+//     } else if (dep2Aversales > dep1Aversales) {
+//         c = dep2Aversales - dep1Aversales;
+//         p = c / dep1Aversales * 100;
+//         integerNumber = Math.floor(p);
+//         if (integerNumber >= 30) {
+//             return `Отдел 2 получил бонус в размере ${integerNumber}%`
+//         } else {
+//             return `Отрыв менее у отдела 2 составил ${integerNumber}%.`
+//         }
+//     } else {
+//         return 'Лидирующего отдела нет.'
+//     }
+// }
+// const dep1Aversales1 = getAverage(35467, 29842, 38501);
+// const dep2Aversales1 = getAverage(70533, 50121, 33899);
+// const dep1Aversales2 = getAverage(50301, 21984, 19207);
+// const dep2Aversales2 = getAverage(72381, 41562, 29465);
+// const result1 = printBonus(dep1Aversales1, dep2Aversales1);
+// const result2 = printBonus(dep1Aversales2, dep2Aversales2);
+// console.log(result1);
+// console.log(result2);
+
+
+
+
+
+
+
+//Array (Массивы)
+
+// const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// console.log(colors);
+// colors[5] = 'dark blue';
+// console.log(colors);
+// colors[colors.length] = 'indigo';
+// console.log(colors);
+//
+// const stringNumber = [];
+// stringNumber[0] = 'one';
+// stringNumber[1] = 'two';
+// stringNumber[2] = 'three';
+// console.log(stringNumber);
+
+// const stringNumber = new Array('one', 'two', 'three');
+// console.log(stringNumber);
+//
+// const anyItems = [4, true, new Date(), 'one'];
+// console.log(anyItems);
+
+
+//Методы массивов
+// const numbers = [23, 24, 87, 99];
+// let result;
+//
+// result = numbers.length;
+// console.log(result);
+//
+// result = Array.isArray(numbers);        // метод Array.isArray() проверяет является это массивом или нет.
+// console.log(result);
+//
+// result = numbers.indexOf(87);            // метод indexOf() ищит индекс по значению.
+// console.log(result);
+//
+// result = numbers.push(64);             // метод push(значение) добавляет в конец массива новое значение и возврощает в переменную result длинну массива. Можно помещать несколько значений push(64, 35, 45)
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.pop();                // метод pop() забирает последнее значение в массиве и забранное значение возврощается в переменную result
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.unshift(10, 25, 96);            // метод unshift(значение) кладет в начало массива значение. Можно помещать несколько значений unshift(58, 45. 96, 32)
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.shift();                // метод shift() забирает первое значение из массива и возврощает это значение в переменную result
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.splice(0, 1);          // метод splice(0, 1) забирает из массива выбранные значение. В данном случае:  с первого индекса(0) сколько всего значений будет забрано(1)
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.reverse();             // метод reverse() разварачивает все значения в массиве. как result так и в numbers возврощается перевернутый массив.
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.slice(1, 4);           // метод slice(1, 4) копирует часть массива и возвращает в result новый массив.
+// console.log(result);
+// console.log(numbers);
+//
+// result = numbers.concat(result);        // массив concat(result) склеивает два массива и возврощает в result один массив.
+// console.log(result);
+// console.log(numbers);
+
+//Стрелочные функции
+// const getAge3 = (birthYear, yearNow) => yearNow - birthYear;
+// const myAge3 = getAge3(1986, 2022);
+// console.log(myAge3);
+
+
+
+//Tips Calculator Task
+const calculateTips = invoiceArray => {
+    for (x = 0; invoiceArray[x] < 20; x++) {
+        console.log(invoiceArray[x]);
+        if(invoiceArray[x] < 20) {
+            tips[x] = 20;
+            return console.log(`чаевые должны составлять 20%`);
+        } else {
+            return console.log(`чаевые должны составлять 15%`);
+        }
+    }
+};
+
+
+
+const invoiceArray = [11, 20, 47];
+const tips = [];
+
+calculateTips(invoiceArray);
+console.log(tips);
+// console.log(calculateTips(invoiceArray));
+// let result = calculateTips(invoiceArray);
+// console.log(result);
+// console.log(tips);
