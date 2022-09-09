@@ -949,4 +949,4 @@ mike = {
 };
 jack.BMI();
 mike.BMI();
-console.log(jack.bmi > mike.bmi ? `BMI ${jack.ferstName} ${jack.lastName} ${jack.BMI(this.bmi)} higher than ${mike.ferstName} ${mike.lastName} ${mike.BMI(this.bmi)}!` : `BMI ${mike.ferstName} ${mike.lastName} ${mike.BMI(this.bmi)} hegher than ${jack.ferstName} ${jack.lastName} ${jack.BMI(this.bmi)}!`);
+console.log(jack.bmi > mike.bmi ? `BMI ${jack.ferstName} ${jack.lastName} (${jack.BMI(this.bmi)}) higher than ${mike.ferstName} ${mike.lastName} (${mike.BMI(this.bmi)})!` : `BMI ${mike.ferstName} ${mike.lastName} (${mike.BMI(this.bmi)}) hegher than ${jack.ferstName} ${jack.lastName} (${jack.BMI(this.bmi)})!`);
