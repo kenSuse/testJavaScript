@@ -496,13 +496,6 @@
 // console.log(!false);
 
 
-// let productionPlan;         //План производство
-// let receivedOnWarehouse;    //Поступило на склад
-// let sales;                  //Продано
-// x = 10;
-// console.log(x -= 5);
-
-
 
 
 //Switch Statement
@@ -835,34 +828,125 @@
 // console.log(result);
 // console.log(numbers);
 
-//Стрелочные функции
-// const getAge3 = (birthYear, yearNow) => yearNow - birthYear;
-// const myAge3 = getAge3(1986, 2022);
-// console.log(myAge3);
+// let one = [1,2,3];          //Массив является ссылкой на объект. Если меняется в копии массива то меняется и в основном массиве
+// let two = one;
+// two.pop();
+// console.log(one);
+// console.log(two);
+
+
 
 
 
 //Tips Calculator Task
-const calculateTips = invoiceArray => {
-    for (x = 0; invoiceArray[x] < 20; x++) {
-        console.log(invoiceArray[x]);
-        if(invoiceArray[x] < 20) {
-            tips[x] = 20;
-            return console.log(`чаевые должны составлять 20%`);
-        } else {
-            return console.log(`чаевые должны составлять 15%`);
-        }
+// const calculateTips = bill => bill < 20 ? bill * 0.2 : bill * 0.15;
+//
+// const bills = [11, 20, 47];
+// const tips = [calculateTips(bills[0]), calculateTips(bills[1]), calculateTips(bills[2])];
+// const billTips = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+//
+// console.log(tips);
+// console.log(billTips);
+
+
+
+
+
+
+//Объекты
+// myData = {
+//     ferstname: 'Youra',
+//     lastname: 'Suse',
+//     age: 36,
+//     familyMembers: ['one', 'two', 'three']
+// };
+// console.log(myData.familyMembers[1]);
+// console.log(myData.familyMembers.length);
+// console.log(myData['ferstname']);
+
+// const baseName = 'name';
+// console.log(myData['last' + baseName]);
+//
+// const userInput = prompt('What do you want to know anout Youra? Choose between ferstname, lastname, age, familyMembers');
+// if(myData[userInput]) {
+//     console.log(myData[userInput]);
+// } else {
+//     console.log('Такого значения нет');
+// }
+
+//Создаем ноыве свойства с помощью оператора доступа и квадратных скобок.
+// myData.location = 'Rossia';
+// myData['telegram'] = '@tel';
+// const telegram = 'telegram';
+// myData.telegram = '@telegram';
+// console.log(myData);
+// console.log(myData.ferstname + ' has ' + myData.familyMembers.length + ' family members and the first one is ' + myData.familyMembers[0]);
+// console.log(`${myData.ferstname} has ${myData.familyMembers.length} family members and the first one is ${myData.familyMembers[0]}`);
+
+//Методы объектов
+// myData = {
+//     ferstname: 'Youra',
+//     lastname: 'Suse',
+//     berthYear: 1986,
+//     familyMembers: ['one', 'two', 'three'],
+//     drivrKicense: true,
+//     // calcAge: function () {                           //Любая функция которая находится в объекте называется методом объекта
+//     //     // console.log(this);
+//     //     return 2022 - this.berthYear;
+//     // }
+//     calcAge: function () {
+//         this.age = 2022 - this.berthYear;
+//     }
+// };
+// console.log(myData.calcAge(myData.berthYear));                //В первом варианте мы используем оператор доступа (.) - точка
+// console.log(myData['calcAge'](myData['berthYear']));          //Во втором варианте мы используем [] - квадратные скобки, но в таком случае необходимо указать название значения или функции как строку - ['calcAge']
+// console.log(myData.calcAge());
+// myData.calcAge();
+// console.log(myData.age);
+
+// myData = {
+//     ferstname: 'YouRa',
+//     lastname: 'Suse',
+//     berthYear: 1986,
+//     job: 'programming instructor',
+//     familyMembers: ['one', 'two', 'three'],
+//     drivrKicense: true,
+//     calcAge: function () {
+//         // this.age = 2022 - this.berthYear;
+//         return 2022 - this.berthYear;
+//     },
+//     getSamore: function () {
+//         return `${this.ferstname} is a ${this.calcAge()}-years old ${this.job} and he has ${(this.drivrKicense) ? 'a' : 'no'} driver license`;
+//     }
+// };
+// // myData.calcAge();
+// // console.log(myData.age);
+// console.log(myData.getSamore());
+// myData.drivrKicense = false;
+// console.log(myData.getSamore());
+
+
+//Задача по объекта
+jack = {
+    ferstName: 'Jack',
+    lastName: 'White',
+    weight: 79,
+    height: 1.70,
+    BMI: function () {
+        const bmi = this.weight / (Math.pow(this.height, 2));
+        return bmi.toFixed(1);
     }
 };
-
-
-
-const invoiceArray = [11, 20, 47];
-const tips = [];
-
-calculateTips(invoiceArray);
-console.log(tips);
-// console.log(calculateTips(invoiceArray));
-// let result = calculateTips(invoiceArray);
-// console.log(result);
-// console.log(tips);
+mike = {
+    ferstName: 'Mike',
+    lastName: 'Black',
+    weight: 91,
+    height: 1.93,
+    BMI: function () {
+        const bmi = this.weight / (Math.pow(this.height, 2));
+        return bmi.toFixed(1);
+    }
+};
+jack.BMI();
+mike.BMI();
+console.log(jack.bmi > mike.bmi ? `BMI ${jack.ferstName} ${jack.lastName} ${jack.BMI(this.bmi)} higher than ${mike.ferstName} ${mike.lastName} ${mike.BMI(this.bmi)}!` : `BMI ${mike.ferstName} ${mike.lastName} ${mike.BMI(this.bmi)} hegher than ${jack.ferstName} ${jack.lastName} ${jack.BMI(this.bmi)}!`);
