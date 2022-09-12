@@ -991,19 +991,71 @@
 // console.log(randomString);
 
 
-const input = 'javascript is awesome';
-let output = '';
-for(let x = 0; x < input.length; x++) {
-    if(input[x] === 'a') {
-        output += 4;
-    } else if (input[x] === 'e') {
-        output += 3;
-    } else if (input[x] === 'i') {
-        output += 1;
-    } else if (input[x] === 'o') {
-        output += 0;
-    } else {
-        output += input[x];
-    }
+// const input = 'javascript is awesome';
+// let output = '';
+// for(let x = 0; x < input.length; x++) {
+//     if(input[x] === 'a') {
+//         output += 4;
+//     } else if (input[x] === 'e') {
+//         output += 3;
+//     } else if (input[x] === 'i') {
+//         output += 1;
+//     } else if (input[x] === 'o') {
+//         output += 0;
+//     } else {
+//         output += input[x];
+//     }
+// }
+// console.log(output);
+
+
+// const likeCats = confirm('Нравятся ли Вам кошки?');
+// const result = (likeCats) ? 'Ты класная кошка!' : 'Что ж, не переживай. Всё равно ты молодец!';
+// alert(result);
+
+
+
+
+
+
+//Game
+// Создаем массив слов
+const words = ['программа', 'макака', 'прекрасный', 'оладушки', 'цветок', 'май', 'весна', 'животные'];
+// Выбираем случайное слово
+const word = words[Math.trunc(Math.random() * words.length)];
+// Создаем итоговый массив
+let answerArray = [];
+for(let a = 0; a < word.length; a++) {
+    answerArray.push('_');
 }
-console.log(output);
+let remainingLetters = word.length;
+// Игровой цикл
+while(remainingLetters > 0 && attempt > remainingLetters) {
+    // Показываем состояние игры
+    alert(answerArray.join(' '));
+    // Запрашиваем вариант ответа
+    let guess = prompt('Угадайте букву или нажмите отмена для выхода из игры');
+    if(guess === null) {
+        // Выходим из игрового цикла
+        break;
+    } else if (guess.length !== 1) {
+        alert('Пожалуйста, введитетолько одну букву');
+    } else {
+        // Обновляем состояние игры
+        for(let x = 0; x < word.length; x++) {
+            if(word[x] === guess.toLowerCase()) {
+                answerArray[x] = guess.toLowerCase();
+                remainingLetters--;
+            }
+        }
+    }
+};
+// Отображаем ответ и поздравляем игрока
+if(remainingLetters === 0) {
+    alert(answerArray.join(' '));
+    alert(`Отлично! Было загадано слово ${word}`);
+} else {
+    alert(`Игра окончена. Было загадано слово - ${word}`);
+}
+
+
