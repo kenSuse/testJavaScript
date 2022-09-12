@@ -927,26 +927,83 @@
 
 
 //Задача по объекта
-jack = {
-    ferstName: 'Jack',
-    lastName: 'White',
-    weight: 79,
-    height: 1.70,
-    BMI: function () {
-        const bmi = this.weight / (Math.pow(this.height, 2));
-        return bmi.toFixed(1);
+// jack = {
+//     ferstName: 'Jack',
+//     lastName: 'White',
+//     weight: 91,
+//     height: 1.93,
+//     BMI: function () {
+//         this.bmi = this.weight / (Math.pow(this.height, 2));
+//         return this.bmi;
+//     }
+// };
+// mike = {
+//     ferstName: 'Mike',
+//     lastName: 'Black',
+//     weight: 79,
+//     height: 1.70,
+//     BMI: function () {
+//         this.bmi = this.weight / (Math.pow(this.height, 2));
+//         return this.bmi;
+//     }
+// };
+// console.log(jack.BMI());
+// console.log(mike.BMI());
+// if(jack.bmi > mike.bmi) {
+//     console.log(`BMI ${jack.ferstName} ${jack.lastName} (${jack.bmi}) higher than ${mike.ferstName} ${mike.lastName} (${mike.bmi})!`);
+// } else if (mike.bmi > jack.bmi) {
+//     console.log(`BMI ${mike.ferstName} ${mike.lastName} (${mike.bmi}) hegher than ${jack.ferstName} ${jack.lastName} (${jack.bmi})!`);
+// } else {
+//     console.log(`BMI ${mike.ferstName} and ${jack.ferstName} equal (${mike.bmi})!`);
+// }
+
+
+//Условия и циклы
+// let myName = 'ken';
+// if(myName === 'ken') {
+//     console.log('Hello to me');
+// } else if (myName === 'dad') {
+//     console.log(`Hello ${myName}`);
+// } else if (myName === 'mam') {
+//     console.log(`Hello ${myName}`);
+// }
+// else {
+//     console.log('Hello strenger');
+// };
+// for(let x = 3; x < 10000; x *= 3) {
+//     console.log(x);
+// };
+
+
+// const animals = ['кот', 'рыба', 'лемур', 'комодский варан'];
+// for(let x = 0; x < animals.length; x++) {
+//     animals[x] += ' - прекрасное животное';
+// };
+// console.log(animals);
+
+
+// let alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьюя';
+// let randomString = '';
+// while (randomString.length < 9) {
+//     let randomString2 = (Math.floor(Math.random() * alphabet.length));
+//     randomString += alphabet[randomString2];
+// };
+// console.log(randomString);
+
+
+const input = 'javascript is awesome';
+let output = '';
+for(let x = 0; x < input.length; x++) {
+    if(input[x] === 'a') {
+        output += 4;
+    } else if (input[x] === 'e') {
+        output += 3;
+    } else if (input[x] === 'i') {
+        output += 1;
+    } else if (input[x] === 'o') {
+        output += 0;
+    } else {
+        output += input[x];
     }
-};
-mike = {
-    ferstName: 'Mike',
-    lastName: 'Black',
-    weight: 91,
-    height: 1.93,
-    BMI: function () {
-        const bmi = this.weight / (Math.pow(this.height, 2));
-        return bmi.toFixed(1);
-    }
-};
-jack.BMI();
-mike.BMI();
-console.log(jack.bmi > mike.bmi ? `BMI ${jack.ferstName} ${jack.lastName} (${jack.BMI(this.bmi)}) higher than ${mike.ferstName} ${mike.lastName} (${mike.BMI(this.bmi)})!` : `BMI ${mike.ferstName} ${mike.lastName} (${mike.BMI(this.bmi)}) hegher than ${jack.ferstName} ${jack.lastName} (${jack.BMI(this.bmi)})!`);
+}
+console.log(output);
