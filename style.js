@@ -1037,42 +1037,163 @@
 
 
 
-//Game
-// Создаем массив слов
-const words = ['программа', 'макака', 'прекрасный', 'оладушки', 'цветок', 'май', 'весна', 'животные'];
-// Выбираем случайное слово
-const word = words[Math.trunc(Math.random() * words.length)];
-// Создаем итоговый массив
-let answerArray = [];
-for(let a = 0; a < word.length; a++) {
-    answerArray.push('_');
-}
-let remainingLetters = word.length;
-// Игровой цикл
-while(remainingLetters > 0 && attempt > remainingLetters) {
-    // Показываем состояние игры
-    alert(answerArray.join(' '));
-    // Запрашиваем вариант ответа
-    let guess = prompt('Угадайте букву или нажмите отмена для выхода из игры');
-    if(guess === null) {
-        // Выходим из игрового цикла
-        break;
-    } else if (guess.length !== 1) {
-        alert('Пожалуйста, введитетолько одну букву');
-    } else {
-        // Обновляем состояние игры
-        for(let x = 0; x < word.length; x++) {
-            if(word[x] === guess.toLowerCase()) {
-                answerArray[x] = guess.toLowerCase();
-                remainingLetters--;
+//Game висилица
+//Создаем массив с словами
+const words = ['май', 'весна', 'живот', 'привет', 'пока'];
+//Функция pickWord() возвращает случайно выбранное слово из массива words
+function pickWord() {
+    return words[Math.trunc(Math.random() * words.length)];
+};
+//Функция setupAnswerArray() Возвращает итоговый массив для заданного слова word
+function setupAnswerArray(wrd) {
+    let answerArray = [];
+    for (let a = 0; a < wrd.length; a++) {
+        answerArray.push('_');
+    }
+    return answerArray;
+};
+//С помощью alert отображает текущее состояние игры
+function showPlayerProgress(arr) {
+    return alert(arr.join(' '));
+};
+//Запрашивает ответ игрока с помощью prompt
+function getGuess() {
+    return prompt('Угадайте букву или нажмите отмена для выхода из игры');
+};
+//Обновляет answerArray согласно ответу игрока (guess) возвращает число, обозначающее, сколько раз буква guess встречается в слове, чтобы можно было обновить значение remainingLetters
+function updateGameState(guess, word, answerArray) {
+    let result = 0;
+    for (let a = 0; a < word.length; a++) {
+        if (word[a] === guess.toLowerCase()) {
+            if (answerArray[a] != guess.toLowerCase()) {
+                answerArray[a] = word[a];
+                result++;
             }
         }
     }
+    attempts--;
+    return result;
 };
-// Отображаем ответ и поздравляем игрока
-if(remainingLetters === 0) {
-    alert(answerArray.join(' '));
-    alert(`Отлично! Было загадано слово ${word}`);
-} else {
-    alert(`Игра окончена. Было загадано слово - ${word}`);
+//С помощью alert показывает игроку отгаданное слово и поздравляет его с победой или проигрышем
+function showAnswerAndCongratulatePlayer() {
+    if (remainingLetters === 0) {
+        alert(answerArray.join(' '));
+        alert(`Вы выиграли! Было загадано слово - ${word}`);
+    } else {
+        alert(`Вы проиграли. Было загадано слово - ${word}`);
+    };
 };
+
+const word = pickWord();
+const answerArray = setupAnswerArray(word);
+let remainingLetters = word.length;
+let attempts = remainingLetters * 3;
+while (remainingLetters > 0 && attempts > remainingLetters) {
+    showPlayerProgress(answerArray);
+    const guess = getGuess();
+    if (guess === null) {
+        break;
+    } else if (guess.length !== 1) {
+        alert('Пожалуйста, введите одиночную букву.');
+    } else {
+        const correctGuesses = updateGameState(guess, word, answerArray);
+        remainingLetters -= correctGuesses;
+    }
+};
+showAnswerAndCongratulatePlayer(answerArray);
+
+
+//Создаём переменную с числом попыток для отгадывания загаданного слова.
+// let nambersOfAttempts = remainingLetters * 3;
+// // Игровой цикл. В цикле while есть две проверки
+// while (remainingLetters > 0 && nambersOfAttempts > remainingLetters) {
+//     // Показываем состояние игры. Показывает сколько букв в слове которое нужно отгадать.
+//     alert(answerArray.join(' '));
+//     // Запрашиваем вариант ответа
+//     let guess = prompt('Угадайте букву или нажмите отмена для выхода из игры');
+//     // Если игрок нажал - Отмена
+//     if (guess === null) {
+//         // Выходим из игрового цикла
+//         break;
+//         //Если игрок нажал несколько букв
+//     } else if (guess.length !== 1) {
+//         alert('Пожалуйста, введитетолько одну букву');
+//     } else {
+//         // Дикриментируем число попыток
+//         nambersOfAttempts--;
+//         // с помощью цикла for. пробегаем по всему загаданному слову и ищем совпадения с тем что ввел игрок
+//         for (let x = 0; x < word.length; x++) {
+//             // Если игрок ввел верно букву
+//             if (word[x] === guess.toLowerCase()) {
+//                 // Если этой буквы еще не было в массиве
+//                 if (answerArray[x] != guess.toLowerCase()) {
+//                     answerArray[x] = guess.toLowerCase();
+//                     remainingLetters--;
+//                 }
+//             }
+//         }
+//     }
+// };
+// // Отображаем ответ и поздравляем игрока
+// if (remainingLetters === 0) {
+//     alert(answerArray.join(' '));
+//     alert(`Отлично! Было загадано слово - ${word}`);
+// } else {
+//     alert(`Игра окончена. Было загадано слово - ${word}`);
+// };
+
+
+
+// const drawCats = function (howManyTimes, whatToDraw) {
+//     const mas1 = [];
+//     for(let x = 0; x < howManyTimes; x++) {
+//         mas1.push(`${x} ${whatToDraw} `);
+//     }
+//     return mas1;
+// };
+// const result = drawCats(10, '=^.^=');
+// console.log(result.join());
+
+
+
+// function pickRandomWord(word) {
+//     return word[Math.trunc(Math.random() * word.length)];
+// };
+// function generateRandomInsult() {
+//     const randomBodyParts = ["глаз", "нос", "череп"];
+//     const randomAdjectives = ["вонючая", "унылая", "дурацкая"];
+//     const randomWords = ["муха", "выдра", "дубина", "мартышка", "крыса"];
+//     return `У тебя ${pickRandomWord(randomBodyParts)} словно ${pickRandomWord(randomAdjectives)} ${pickRandomWord(randomWords)}!!!`;
+// };
+// const result = generateRandomInsult();
+// console.log(result);
+
+
+// function add(n1, n2) {
+//     return n1 + n2;
+// };
+// function multiply(a1, a2) {
+//     return a1 * a2;
+// };
+// // const resultAdd = add(9824, 777);
+// // console.log(multiply(36325, resultAdd));
+// console.log(multiply(36325, add(9824, 777)));
+
+
+// function areArraysSame(arr1, arr2) {
+//     let result = [];
+//     for (let x = 0; x < arr1.length; x++) {
+//         if (arr1[x] === arr2[x]) {
+//             result.push(arr1[x]);
+//         }
+//         else {
+//             return false;
+//         }
+//     }
+//     if (arr1.length === result.length && arr1.length === arr2.length) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// };
+// console.log(areArraysSame([1, 2, 3], [1, 2, 3]));
