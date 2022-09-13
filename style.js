@@ -849,7 +849,26 @@
 // console.log(billTips);
 
 
-
+//Tips Calculator Task
+// const calculateTips = bill => bill < 20 ? bill * 0.2 : bill * 0.15;
+//
+// const bills = [31, 95, 276, 540, 27, 205, 11, 1180, 96, 57];
+// const tips = [];
+// const total = [];
+//
+// for (let x = 0; x < bills.length; x++) {
+//     tips.push(calculateTips(bills[x]));
+//     total.push(bills[x] + tips[x]);
+// }
+//
+// function calculateAverage(arr) {
+//     let sum = 0;
+//     for (let x = 0; x < arr.length; x++) {
+//         sum += arr[x];
+//     }
+//     return Math.trunc(sum /= arr.length);
+// };
+// console.log(calculateAverage(total));
 
 
 
@@ -1056,10 +1075,4 @@ if(remainingLetters === 0) {
     alert(`Отлично! Было загадано слово ${word}`);
 } else {
     alert(`Игра окончена. Было загадано слово - ${word}`);
-}
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 58629624a9a0595c1f6bc2eb47e5dcf4ae8d2b4a
+};
