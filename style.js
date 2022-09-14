@@ -1034,116 +1034,6 @@
 
 
 
-
-
-
-//Game висилица
-//Создаем массив с словами
-const words = ['май', 'весна', 'живот', 'привет', 'пока'];
-//Функция pickWord() возвращает случайно выбранное слово из массива words
-function pickWord() {
-    return words[Math.trunc(Math.random() * words.length)];
-};
-//Функция setupAnswerArray() Возвращает итоговый массив для заданного слова word
-function setupAnswerArray(wrd) {
-    let answerArray = [];
-    for (let a = 0; a < wrd.length; a++) {
-        answerArray.push('_');
-    }
-    return answerArray;
-};
-//С помощью alert отображает текущее состояние игры
-function showPlayerProgress(arr) {
-    return alert(arr.join(' '));
-};
-//Запрашивает ответ игрока с помощью prompt
-function getGuess() {
-    return prompt('Угадайте букву или нажмите отмена для выхода из игры');
-};
-//Обновляет answerArray согласно ответу игрока (guess) возвращает число, обозначающее, сколько раз буква guess встречается в слове, чтобы можно было обновить значение remainingLetters
-function updateGameState(guess, word, answerArray) {
-    let result = 0;
-    for (let a = 0; a < word.length; a++) {
-        if (word[a] === guess.toLowerCase()) {
-            if (answerArray[a] != guess.toLowerCase()) {
-                answerArray[a] = word[a];
-                result++;
-            }
-        }
-    }
-    attempts--;
-    return result;
-};
-//С помощью alert показывает игроку отгаданное слово и поздравляет его с победой или проигрышем
-function showAnswerAndCongratulatePlayer() {
-    if (remainingLetters === 0) {
-        alert(answerArray.join(' '));
-        alert(`Вы выиграли! Было загадано слово - ${word}`);
-    } else {
-        alert(`Вы проиграли. Было загадано слово - ${word}`);
-    };
-};
-
-const word = pickWord();
-const answerArray = setupAnswerArray(word);
-let remainingLetters = word.length;
-let attempts = remainingLetters * 3;
-while (remainingLetters > 0 && attempts > remainingLetters) {
-    showPlayerProgress(answerArray);
-    const guess = getGuess();
-    if (guess === null) {
-        break;
-    } else if (guess.length !== 1) {
-        alert('Пожалуйста, введите одиночную букву.');
-    } else {
-        const correctGuesses = updateGameState(guess, word, answerArray);
-        remainingLetters -= correctGuesses;
-    }
-};
-showAnswerAndCongratulatePlayer(answerArray);
-
-
-//Создаём переменную с числом попыток для отгадывания загаданного слова.
-// let nambersOfAttempts = remainingLetters * 3;
-// // Игровой цикл. В цикле while есть две проверки
-// while (remainingLetters > 0 && nambersOfAttempts > remainingLetters) {
-//     // Показываем состояние игры. Показывает сколько букв в слове которое нужно отгадать.
-//     alert(answerArray.join(' '));
-//     // Запрашиваем вариант ответа
-//     let guess = prompt('Угадайте букву или нажмите отмена для выхода из игры');
-//     // Если игрок нажал - Отмена
-//     if (guess === null) {
-//         // Выходим из игрового цикла
-//         break;
-//         //Если игрок нажал несколько букв
-//     } else if (guess.length !== 1) {
-//         alert('Пожалуйста, введитетолько одну букву');
-//     } else {
-//         // Дикриментируем число попыток
-//         nambersOfAttempts--;
-//         // с помощью цикла for. пробегаем по всему загаданному слову и ищем совпадения с тем что ввел игрок
-//         for (let x = 0; x < word.length; x++) {
-//             // Если игрок ввел верно букву
-//             if (word[x] === guess.toLowerCase()) {
-//                 // Если этой буквы еще не было в массиве
-//                 if (answerArray[x] != guess.toLowerCase()) {
-//                     answerArray[x] = guess.toLowerCase();
-//                     remainingLetters--;
-//                 }
-//             }
-//         }
-//     }
-// };
-// // Отображаем ответ и поздравляем игрока
-// if (remainingLetters === 0) {
-//     alert(answerArray.join(' '));
-//     alert(`Отлично! Было загадано слово - ${word}`);
-// } else {
-//     alert(`Игра окончена. Было загадано слово - ${word}`);
-// };
-
-
-
 // const drawCats = function (howManyTimes, whatToDraw) {
 //     const mas1 = [];
 //     for(let x = 0; x < howManyTimes; x++) {
@@ -1197,3 +1087,99 @@ showAnswerAndCongratulatePlayer(answerArray);
 //     }
 // };
 // console.log(areArraysSame([1, 2, 3], [1, 2, 3]));
+
+
+
+
+// //Game висилица
+// //Создаем массив с словами
+// const words = ['май', 'весна', 'живот', 'привет', 'пока'];
+// //Функция pickWord() возвращает случайно выбранное слово из массива words
+// function pickWord() {
+//     return words[Math.trunc(Math.random() * words.length)];
+// };
+// //Функция setupAnswerArray() Возвращает итоговый массив для заданного слова word
+// function setupAnswerArray(wrd) {
+//     let answerArray = [];
+//     for (let a = 0; a < wrd.length; a++) {
+//         answerArray.push('_');
+//     }
+//     return answerArray;
+// };
+// //С помощью alert отображает текущее состояние игры
+// function showPlayerProgress(arr) {
+//     return alert(arr.join(' '));
+// };
+// //Запрашивает ответ игрока с помощью prompt
+// function getGuess() {
+//     return prompt('Угадайте букву или нажмите отмена для выхода из игры');
+// };
+// //Обновляет answerArray согласно ответу игрока (guess) возвращает число, обозначающее, сколько раз буква guess встречается в слове, чтобы можно было обновить значение remainingLetters
+// function updateGameState(guess, word, answerArray) {
+//     let result = 0;
+//     for (let a = 0; a < word.length; a++) {
+//         if (word[a] === guess.toLowerCase()) {
+//             if (answerArray[a] != guess.toLowerCase()) {
+//                 answerArray[a] = word[a];
+//                 result++;
+//             }
+//         }
+//     }
+//     attempts--;
+//     return result;
+// };
+// //С помощью alert показывает игроку отгаданное слово и поздравляет его с победой или проигрышем
+// function showAnswerAndCongratulatePlayer() {
+//     if (remainingLetters === 0) {
+//         alert(answerArray.join(' '));
+//         alert(`Вы выиграли! Было загадано слово - ${word}`);
+//     } else {
+//         alert(`Вы проиграли. Было загадано слово - ${word}`);
+//     };
+// };
+//
+// const word = pickWord();
+// const answerArray = setupAnswerArray(word);
+// let remainingLetters = word.length;
+// let attempts = remainingLetters * 3;
+// while (remainingLetters > 0 && attempts > remainingLetters) {
+//     showPlayerProgress(answerArray);
+//     const guess = getGuess();
+//     if (guess === null) {
+//         break;
+//     } else if (guess.length !== 1) {
+//         alert('Пожалуйста, введите одиночную букву.');
+//     } else {
+//         const correctGuesses = updateGameState(guess, word, answerArray);
+//         remainingLetters -= correctGuesses;
+//     }
+// };
+// showAnswerAndCongratulatePlayer(answerArray);
+
+
+
+const humidities = [32, 45, 29, 19, 'eror', 58, 71, 103, 47, 33, 42, 51, 49];
+const humidities2 = [32, 45, 29, 19, 58, 71, 103, 47, 33, 42, 165, 51, 49];
+
+function calculateHumiditiesAmplitude(hum1, hum2) {
+    const hum = hum1.concat(hum2);
+    let max = hum[0];
+    let min = hum[0];
+    for (let x = 1; x < hum.length; x++) {
+        const currentHum = hum[x];
+        if (typeof currentHum !== 'number') continue;
+        if (currentHum > max) {
+            max = currentHum;
+        }
+        if (currentHum < min) {
+            min = currentHum;
+        }
+    };
+    console.log(`min ${min}, max ${max}`);
+    return max - min;
+};
+const result = calculateHumiditiesAmplitude(humidities, humidities2);
+console.log(result);
+
+
+// const arr3 = arr1.concat(arr2);
