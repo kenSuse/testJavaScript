@@ -1158,28 +1158,56 @@
 
 
 
-const humidities = [32, 45, 29, 19, 'eror', 58, 71, 103, 47, 33, 42, 51, 49];
-const humidities2 = [32, 45, 29, 19, 58, 71, 103, 47, 33, 42, 165, 51, 49];
+// const humidities = [32, 45, 29, 19, 'eror', 58, 71, 103, 47, 33, 42, 51, 49];
+// const humidities2 = [32, 45, 29, 19, 58, 71, 103, 47, 33, 42, 165, 51, 49];
+//
+// function calculateHumiditiesAmplitude(hum1, hum2) {
+//     const hum = hum1.concat(hum2);
+//     let max = hum[0];
+//     let min = hum[0];
+//     for (let x = 1; x < hum.length; x++) {
+//         const currentHum = hum[x];
+//         if (typeof currentHum !== 'number') continue;   // continue прерывает выполнение текущей итерации текущего или отмеченного цикла, и продолжает его выполнение на следующей итерации.
+//         if (currentHum > max) {
+//             max = currentHum;
+//         }
+//         if (currentHum < min) {
+//             min = currentHum;
+//         }
+//     };
+//     console.log(`min ${min}, max ${max}`);
+//     return max - min;
+// };
+// const result = calculateHumiditiesAmplitude(humidities, humidities2);
+// console.log(result);
 
-function calculateHumiditiesAmplitude(hum1, hum2) {
-    const hum = hum1.concat(hum2);
-    let max = hum[0];
-    let min = hum[0];
-    for (let x = 1; x < hum.length; x++) {
-        const currentHum = hum[x];
-        if (typeof currentHum !== 'number') continue;
-        if (currentHum > max) {
-            max = currentHum;
-        }
-        if (currentHum < min) {
-            min = currentHum;
-        }
-    };
-    console.log(`min ${min}, max ${max}`);
-    return max - min;
-};
-const result = calculateHumiditiesAmplitude(humidities, humidities2);
-console.log(result);
+
+// function celciusToKelvin() {
+//     measurement = {
+//         type: 'temp',
+//         init: 'celsius',
+//         value: Number(prompt('Temperature in Celcius: '))
+//     };
+//     console.table(measurement);                 //Вывод данных в таблице.
+//     debugger;
+//     // console.warn(measurement.value);
+//     // console.error(measurement.value);
+//     return measurement.value + 273;
+// };
+// console.log(celciusToKelvin());
 
 
-// const arr3 = arr1.concat(arr2);
+
+//1. Приложение должно отобразить строку с прогнозируемой влажностью из заданного массива.
+//2. Необходимо создать функцию которая должна принимать в параметрах массив чисел влажности и возвращать строку о влажности.
+//2.1. В функции необходимо создат цикл for для перебора всех цифр и записать их в итоговую переменную которую вернет функция
+// const data1 = [49, 51, 63];
+// const data2 = [31, 29, 43, 58, 52];
+// function printHumiditesForecast(arr) {
+//     let resultPrint = '... ';
+//     for(let a = 0; a < arr.length; a++) {
+//         resultPrint += `${arr[a]}% humidity in ${a + 1} days ... `;
+//     }
+//     return resultPrint;
+// };
+// console.log(printHumiditesForecast(data2));
