@@ -1221,4 +1221,50 @@
 
 
 
-//DOM
+//DOM and JQUERY
+// document.querySelector('.hello-h1').textContent = ' ';
+// const result = document.querySelector('.hello-h1');
+// console.log(result.innerHTML);
+// const newHeadingText = prompt('Введите новый заголовок');
+// result.innerHTML = newHeadingText;
+// result.textContent = newHeadingText;
+
+// const newHeadingText = prompt('Введите новый заголовок');
+// $('.hello-h1').text(newHeadingText);
+// $('body').append('<p>Это новый параграф</p>');
+// for(let x = 0; x < 2; x++) {
+//     let hobby = prompt(`Напишите одно из своих хобби! ${x + 1} from 2`);
+//     $('body').append(`<p> ${hobby} </p>`);
+// }
+// $('h1').fadeOut(3000);
+
+// $('h1').text('Этот текст скоро исчезнет').fadeOut(3000);
+// $('.hello-h1').slideUp(3000).SlideDown(2000);
+// $('.hello-h1').fadeOut(3000);
+// $('.hello-h1').fadeIn(2000);
+// for (let x = 0; x < 5; x++) {
+//     $('.hello-h1').fadeOut(3000);
+//     $('.hello-h1').fadeIn(2000);
+// };
+
+// ('.hello-h1').show();
+// ('.hello-h1').hide();
+
+// const people = ['ken', 'chack', 'lysi'];
+// for(let x = 0; x < people.length; x++) {
+//     $('body').append(`<p>${people[x]}</p>`);
+// };
+// const nameh1 = document.querySelector('.hello-h1');
+// nameh1.innerHTML = 'Мои друзья';
+//
+// $('p').hide().fadeIn(3000);
+// $('p').append(` лучший!`);
+
+
+// for(let x = 1; x <= 5; x++) {
+//     $('.hello-h1').fadeOut(`${x}000`).fadeIn(`${x}000`);
+// }
+
+
+// $('.hello-h1').fadeOut().delay(5000).fadeIn();
+$('.hello-h1').fadeTo(2000, 0.5);
