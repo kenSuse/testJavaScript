@@ -3,57 +3,73 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1; // +1 означает что случайное число будет не с 0 а с 1 до 20
 let score = 20;
 let result = 0;
-console.log(secretNumber);
-//addEventListener отслеживать события у силектора check по click (клику мышкой на него) function - это то что будет происходить при нажатии на .check
+//Функция случайно загадывает число
+function randomSecretNumber() {
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+};
+//Функция устанавливает значение в селектор guess-message
+function displayGuessMessage(messege) {
+    document.querySelector('.guess-message').textContent = messege;
+};
+//Функция устанавливает значение в селектор score
+function displayScore(messege) {
+    document.querySelector('.score').textContent = messege;
+};
+//Функция устанавливает значение в селекторы если пользователь угадал случайное число. Меняет стили страницы
+function gameWon(messegeNumber, messege1, messege2, messege3) {
+    document.querySelector('.question').textContent = messegeNumber;
+    document.querySelector('body').style.backgroundColor = messege1;
+    document.querySelector('.question').style.width = messege2;
+    document.querySelector('.question').style.fontSize = messege3;
+};
+//Функция устанавливает значение в селектор highscore
+function resultPlus(messegeNumber) {
+    document.querySelector('.highscore').textContent = messegeNumber;
+}
+// Функция сбрасывает всё при нажатии на кнопку сначала.
+function resetGame(numberScore, messege1, messege2, messege3, messege4, messegeValue) {
+    score = numberScore;
+    document.querySelector('.question').textContent = messege1;
+    document.querySelector('body').style.backgroundColor = messege2;
+    document.querySelector('.question').style.width = messege3;
+    document.querySelector('.question').style.fontSize = messege4;
+    document.querySelector('.number-input').value = messegeValue;
+};
+//addEventListener отслеживать события у селектора check по click (клику мышкой на него) function - это то что будет происходить при нажатии на .check
 document.querySelector('.check').addEventListener('click', function () {
+    //Введенное значение пользователем преобразуем с число и ниже начинаем сверять
     const guessingNumber = Number(document.querySelector('.number-input').value);
+    //Если пользователь ничего не ввел
     if (!guessingNumber) {
-        document.querySelector('.guess-message').textContent = 'Введите число!';
+        displayGuessMessage('Введите число!');
+        //Если пользователь ввел загаданное число
     } else if (secretNumber === guessingNumber) {
-        document.querySelector('.question').textContent = secretNumber;
-        document.querySelector('.guess-message').textContent = 'Вы угадали число!';
-
-        document.querySelector('body').style.backgroundColor = 'green';
-        document.querySelector('.question').style.width = '50rem';
-        document.querySelector('.question').style.fontSize = '8rem';
-
+        displayGuessMessage('Вы угадали число!');
+        gameWon(secretNumber, 'green', '50rem', '8rem');
         if (score > result) {
             result = score;
-            document.querySelector('.highscore').textContent = result;
+            resultPlus(result);
         }
-    } else if (guessingNumber > secretNumber && guessingNumber > 0 && guessingNumber <= 20) {
+        //Если пользователь ввел число больше или меньше загаданного
+    } else if (guessingNumber !== secretNumber && guessingNumber > 0 && guessingNumber <= 20) {
         if (score > 1) {
             score--;
-            document.querySelector('.score').textContent = score;
-            document.querySelector('.guess-message').textContent = 'Загаданное число меньше';
+            displayScore(score);
+            displayGuessMessage((guessingNumber > secretNumber) ? 'Загаданное число меньше' : 'Загаданное число больше');
+            //Если у пользователя закончились попытки
         } else {
-            score--;
-            document.querySelector('.score').textContent = score;
-            document.querySelector('.guess-message').textContent = 'Вы проиграли!';
+            displayScore(0);
+            displayGuessMessage('Вы проиграли!');
         }
-    } else if (guessingNumber < secretNumber && guessingNumber > 0 && guessingNumber <= 20) {
-        if (score > 1) {
-            document.querySelector('.guess-message').textContent = 'Загаданное число больше';
-            score--;
-            document.querySelector('.score').textContent = score;
-        } else {
-            score--;
-            document.querySelector('.score').textContent = score;
-            document.querySelector('.guess-message').textContent = 'Вы проиграли!';
-        }
+        //Если пользователь ввел число больше 20 или меньше 0
     } else {
-        document.querySelector('.guess-message').textContent = 'Число от 1 до 20!';
+        displayGuessMessage('Число от 1 до 20!');
     }
 });
-
+//addEventListener отслеживать события у селектора again по click (клику мышкой на него) function - это то что будет происходить при нажатии на .check
 document.querySelector('.again').addEventListener('click', function () {
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-    score = 20;
-    document.querySelector('.question').textContent = '???';
-    document.querySelector('body').style.backgroundColor = 'rgb(0, 0, 0)';
-    document.querySelector('.question').style.width = '25rem';
-    document.querySelector('.question').style.fontSize = '4rem';
-    document.querySelector('.number-input').value = '';
-    document.querySelector('.guess-message').textContent = 'Начни угадывать!';
-    document.querySelector('.score').textContent = score;
+    randomSecretNumber();
+    resetGame(20, '???', 'rgb(0, 0, 0)', '25rem', '4rem', '');
+    displayScore(score);
+    displayGuessMessage('Начни угадывать!');
 });

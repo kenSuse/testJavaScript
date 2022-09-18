@@ -1211,3 +1211,14 @@
 //     return resultPrint;
 // };
 // console.log(printHumiditesForecast(data2));
+
+
+
+
+
+
+
+
+
+
+//DOM
