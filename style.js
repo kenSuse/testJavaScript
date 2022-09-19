@@ -1267,4 +1267,103 @@
 
 
 // $('.hello-h1').fadeOut().delay(5000).fadeIn();
-$('.hello-h1').fadeTo(2000, 0.5);
+// $('.hello-h1').fadeTo(2000, 0.5);
+
+// const timeUp = function () {
+//     alert('Время вышло!');
+// }
+// const result = setTimeout(timeUp, 5000);
+// clearTimeout(result);
+
+// let counter = 5;
+// const printMessege = function() {
+//     console.log(`Ты смотришь в консоль уже ${counter} секунд`);
+//     counter += 5;
+// };
+// const intervalID = setInterval(printMessege, 5000);
+
+// let leftOffset = 0;
+// const moveHeading = function () {
+//     $('.hello-h1').offset({ left: leftOffset });
+//     leftOffset++;
+//     if (leftOffset > 200) {
+//         leftOffset = 0;
+//     }
+// };
+// setInterval(moveHeading, 30);
+
+// const clickHandler = function(event) {
+//     console.log(`Клик ${event.pageX}  ${event.pageY}`);
+// };
+// $('h1').click(clickHandler);
+
+// $('html').mousemove(function (event) {
+//     $('.hello-h1').offset({
+//         left: event.pageX,
+//         top: event.pageY
+//     })
+// });
+
+// $('html').click(function (event) {
+//     $('.hello-h1').offset({
+//         left: event.pageX,
+//         top: event.pageY
+//     })
+//     console.log(`${event.pageX} ${event.pageY}`);
+// });
+
+
+
+
+
+const stopH1 = document.querySelector('.hello-h1');
+
+let leftOffset = 0;
+let topOffset = 24;
+let rightOffset = 200;
+let bottom = 224;
+function moveHeading() {
+    $('.hello-h1').offset({ left: leftOffset });
+    leftOffset++;
+    // console.log(leftOffset);
+    if (leftOffset >= 200) {
+        $('.hello-h1').offset({ top: topOffset });
+        leftOffset--;
+        topOffset++;
+        // console.log(topOffset);
+    }
+    if (topOffset >= 224) {
+        $('.hello-h1').offset({ left: rightOffset });
+        topOffset--;
+        rightOffset--;
+        // console.log(rightOffset);
+    }
+    if (rightOffset <= 0) {
+        $('.hello-h1').offset({ top: bottom });
+        bottom--;
+        leftOffset--;
+        topOffset++;
+        rightOffset++;
+        // console.log(bottom);
+    }
+    if (bottom == 20) {
+        leftOffset = 0;
+        topOffset = 24;
+        rightOffset = 200;
+        bottom = 224;
+    }
+};
+let result = setInterval(moveHeading, 30);
+let cursorPush = 30;
+stopH1.addEventListener('click', function () {
+    // clearInterval(result);
+    cursorPush -= 1;
+    console.log(cursorPush);
+    if (cursorPush === 26) {
+        stopH1.textContent = 'Вы победили!';
+        let result2 = setInterval(moveHeading, 30);
+        clearInterval(result2);
+    }
+    setInterval(moveHeading, cursorPush);
+
+});
