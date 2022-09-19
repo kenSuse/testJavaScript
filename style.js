@@ -1322,7 +1322,8 @@ let leftOffset = 0;
 let topOffset = 24;
 let rightOffset = 200;
 let bottom = 224;
-function moveHeading() {
+
+const moveHeading = function () {
     $('.hello-h1').offset({ left: leftOffset });
     leftOffset++;
     // console.log(leftOffset);
@@ -1353,17 +1354,19 @@ function moveHeading() {
         bottom = 224;
     }
 };
-let result = setInterval(moveHeading, 30);
-let cursorPush = 30;
-stopH1.addEventListener('click', function () {
-    // clearInterval(result);
-    cursorPush -= 1;
-    console.log(cursorPush);
-    if (cursorPush === 26) {
-        stopH1.textContent = 'Вы победили!';
-        let result2 = setInterval(moveHeading, 30);
-        clearInterval(result2);
-    }
-    setInterval(moveHeading, cursorPush);
+const result = setInterval(moveHeading, 30);
 
+let cursorPush = 1;
+let resultAnimachion = 50;
+stopH1.addEventListener('click', function () {
+    let result2 = setInterval(moveHeading, resultAnimachion - cursorPush);
+    stopH1.textContent = cursorPush;
+    console.log(cursorPush);
+    if (cursorPush === 3) {
+        stopH1.textContent = 'Вы победили!';
+        clearInterval(result);
+    }
+    cursorPush += 1;
 });
+// clearInterval(result);
+// const result = setInterval(moveHeading);
