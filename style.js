@@ -1315,58 +1315,150 @@
 
 
 
+//Игра "Кликни по заголовку"
+// const stopH1 = document.querySelector('.hello-h1');
+//
+// let leftOffset = 0;
+// let direction = 'вправо';
+//
+// const moveHeading = function () {
+//     if (direction == 'вправо') {
+//         $('.hello-h1').offset({ left: leftOffset });
+//         leftOffset++;
+//         if (leftOffset >= 200) {
+//             direction = 'вниз';
+//             leftOffset = 0;
+//         }
+//     } else if (direction === 'вниз') {
+//         $('.hello-h1').offset({ top: leftOffset });
+//         leftOffset++;
+//         if (leftOffset >= 200) {
+//             direction = 'влево';
+//             leftOffset = 200;
+//         }
+//     } else if (direction === 'влево') {
+//         $('.hello-h1').offset({ left: leftOffset });
+//         leftOffset--;
+//         if (leftOffset <= 0) {
+//             direction = 'вверх';
+//             leftOffset = 200;
+//         }
+//     } else if (direction === 'вверх') {
+//         $('.hello-h1').offset({ top: leftOffset });
+//         leftOffset--;
+//         if (leftOffset <= 0) {
+//             direction = 'вправо';
+//             leftOffset = 0;
+//         }
+//     }
+// };
+//
+// let numberRepitSpeed = 40;
+// let result = setInterval(moveHeading, numberRepitSpeed);
+//
+// let cursorPush = 1;
+// stopH1.addEventListener('click', function () {
+//     clearInterval(result);
+//     stopH1.textContent = cursorPush;
+//     console.log(cursorPush);
+//     cursorPush += 1;
+//     numberRepitSpeed /= 2;
+//     console.log(numberRepitSpeed);
+//     if (cursorPush > 10) {
+//         stopH1.textContent = 'Вы победили!';
+//     } else {
+//         result = setInterval(moveHeading, numberRepitSpeed);
+//     }
+// });
 
-const stopH1 = document.querySelector('.hello-h1');
 
-let leftOffset = 0;
-let topOffset = 24;
-let rightOffset = 200;
-let bottom = 224;
 
-const moveHeading = function () {
-    $('.hello-h1').offset({ left: leftOffset });
-    leftOffset++;
-    // console.log(leftOffset);
-    if (leftOffset >= 200) {
-        $('.hello-h1').offset({ top: topOffset });
-        leftOffset--;
-        topOffset++;
-        // console.log(topOffset);
-    }
-    if (topOffset >= 224) {
-        $('.hello-h1').offset({ left: rightOffset });
-        topOffset--;
-        rightOffset--;
-        // console.log(rightOffset);
-    }
-    if (rightOffset <= 0) {
-        $('.hello-h1').offset({ top: bottom });
-        bottom--;
-        leftOffset--;
-        topOffset++;
-        rightOffset++;
-        // console.log(bottom);
-    }
-    if (bottom == 20) {
-        leftOffset = 0;
-        topOffset = 24;
-        rightOffset = 200;
-        bottom = 224;
-    }
-};
-const result = setInterval(moveHeading, 30);
 
-let cursorPush = 1;
-let resultAnimachion = 50;
-stopH1.addEventListener('click', function () {
-    let result2 = setInterval(moveHeading, resultAnimachion - cursorPush);
-    stopH1.textContent = cursorPush;
-    console.log(cursorPush);
-    if (cursorPush === 3) {
-        stopH1.textContent = 'Вы победили!';
-        clearInterval(result);
-    }
-    cursorPush += 1;
-});
-// clearInterval(result);
-// const result = setInterval(moveHeading);
+//Игра найди клад
+//Получаем случайное число
+// const getRandomNumber = function (size) {
+//     return Math.trunc(Math.random() * size);
+// };
+// //Вычисляем расстояние от клика (event) до клада (target)
+// const getDistance = function (event, target) {
+//     let diffX = event.offsetX - target.x;
+//     let diffY = event.offsetY - target.y;
+//     return Math.sqrt((diffX * diffX) + (diffY * diffY));
+// };
+// //Получить для расстояния строку подсказки
+// const getDistanceHint = function (distance) {
+//     if (distance < 10) {
+//         return 'Обожжешься!';
+//     } else if (distance < 20) {
+//         return 'Очень горячо!';
+//     } else if (distance < 40) {
+//         return 'Горячо';
+//     } else if (distance < 80) {
+//         return 'Тепло';
+//     } else if (distance < 160) {
+//         return 'Холодно';
+//     } else if (distance < 320) {
+//         return 'Очень холодно';
+//     } else if (distance < 500) {
+//         return 'Очень-очень холодно!';
+//     }
+//     else {
+//         return 'Замерзнешь!';
+//     }
+// };
+// //Создаем переменные
+// const widht = 800;
+// const height = 800;
+// let clicks = 0;
+// let gameOwer = 20;
+// //Случайная позиция клада
+// const target = {
+//     x: getRandomNumber(widht),
+//     y: getRandomNumber(height)
+// };
+// //Добавляем элементу img обработчик клика
+// $('.map').click(function (event) {
+//     clicks++;
+//     gameOwer--;
+//     //Получаем расстояник от места клика до клада
+//     let distance = getDistance(event, target);
+//     //Преобразуем расстояние в подсказку
+//     let distanceHint = getDistanceHint(distance);
+//     //Записываем в элемент distance новую подсказку
+//     $('.distance').text(distanceHint + `. У Вас осталось: ${gameOwer} кликов`);
+//     //Если клик был достаточно близко, поздравляем с победой
+//     if (distance < 8) {
+//         alert('Клад найден! Сделано кликов:' + clicks);
+//     }
+//     if (clicks === 20) {
+//         alert('КОНЕЦ ИГРЫ');
+//     }
+// });
+
+
+
+//Сортировка
+// const arrayNumber = [17, 65, 78, 32, 96, 02, 47, 65, 98, 157];
+// function bubbleSortConcept(arrayNumber) {
+//     for (let x = 0; x < arrayNumber.length; x++) {
+//         for (let y = 0; y < x; y++) {
+//             if (arrayNumber[x] > arrayNumber[x + 1]) {
+//                 let temp = [arrayNumber[x]];
+//                 arrayNumber[x] = arrayNumber[x + 1];
+//                 arrayNumber[x + 1] = temp;
+//             }
+//         }
+//     }
+//     return arrayNumber;
+// };
+// const result = bubbleSortConcept(arrayNumber);
+// console.log(result.join());
+
+// const arrayNumber = [17, 65, 78, 32, 96, 02, 47, 65, 98, 157];
+// arrayNumber.sort(function(a, b) {
+//     return a - b;
+// });
+// console.log(arrayNumber.reverse());
+
+
+//Проект 3
