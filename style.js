@@ -1461,4 +1461,3 @@
 // console.log(arrayNumber.reverse());
 
 
-//Проект 3
