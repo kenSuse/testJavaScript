@@ -1461,3 +1461,17 @@
 // console.log(arrayNumber.reverse());
 
 
+// function encrypt(text) {
+//   let resultString = '';
+//   for (let x = 0; x < text.length; x++) {
+//     if ((x % 2) !== 0) {
+//       resultString += text[x] + text[x - 1];
+//     }
+//   }
+//   if ((text.length % 2) !== 0) {
+//     return resultString + text[text.length - 1];
+//   } else {
+//     return resultString;
+//   }
+// }
+// console.log(encrypt('omev!'));
