@@ -1475,3 +1475,40 @@
 //   }
 // }
 // console.log(encrypt('omev!'));
+
+
+// //Каждое третье (number) число делает символ заглавным
+// function  makeItFunny(text, number) {
+//     let count = 0;
+//     let newStr = '';
+//     while(count < text.length) {
+//         if((count + 1) % number === 0) {
+//             newStr += text[count].toUpperCase();
+//         } else {
+//         newStr += text[count];
+//         }
+//         count++;
+//     }
+//    return newStr;
+// };
+// console.log(makeItFunny('I never look back', 3));
+//
+//
+// //Меняет местами второй с первым символами. Если длинна строки не чётная тогда добавляется последний символ в новую строку
+// function  encrypt(text) {
+//     let resString = '';
+//     let count = 0;
+//     for(let x = 0; x < text.length; x++) {
+//         if(count % 2 !== 0) {
+//             resString += text[count] + text[count - 1];
+//         }
+//         count++;
+//     }
+//     if(text.length % 2 !== 0) {
+//         resString += text[text.length - 1];
+//     }
+//     return resString;
+// };
+// console.log(encrypt('move'));
+
+
