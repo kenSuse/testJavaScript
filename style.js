@@ -1512,3 +1512,98 @@
 // console.log(encrypt('move'));
 
 
+//STAGE 7
+const japaneseRestaurant = {
+    name: 'Banzai',
+    location: '108 Markham Woods Rd, Londwood, USA',
+    categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
+    appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
+    mainMenu: ['Sushi', 'Ramen', 'Tempura'],
+    workingHours: {
+        wed: {
+            open: 10,
+            close: 23,
+        },
+        fri: {
+            open: 10,
+            close: 23,
+        },
+        sun: {
+            open: 12,
+            close: 23,
+        }
+    },
+    orderFood: function (appetizersIndex, mainMenuIndex) {
+        return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+    },
+    foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
+        console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
+    },
+};
+
+japaneseRestaurant.foodDelivery({
+    mainMenuIndex: 1,
+    appetizersIndex: 2,
+    address: '8 Markham Woods Rd, Londwood, USA',
+    deliveryTime: '14:00',
+});
+japaneseRestaurant.foodDelivery({
+    address: '8 Markham Woods Rd, Londwood, USA',
+});
+//Деструктуризация Объектов
+// const {categories, name: restName, workingHours: hours} = japaneseRestaurant;
+// console.log(categories, restName, hours.sun);
+
+//Default values
+// const {menu = [], appetizers: starterMenu = []} = japaneseRestaurant;
+// console.log(menu, starterMenu);
+
+//Изменение переменных
+// let x = 3;
+// let y = 5;
+// const obj = {x: 11, y:22, z: 33};
+// ({x, y} = obj);
+// console.log(x, y);
+
+//Вложенные объекты
+// const {workingHours: hours} = japaneseRestaurant;
+// const {sun} = japaneseRestaurant.workingHours;
+// const {sun: {open: openHours, close: closeHours}} = hours;
+// console.log(openHours, closeHours);
+
+
+//Деструктуризация массивов
+// const arr = [3, 5, 9, 4];
+//
+// const [a, b, c, d] = arr;
+// console.log(a, b, c, d);
+//
+// let [a1, , a3] = japaneseRestaurant.categories;
+// console.log(a1, a3);
+
+//Swaping variables. Обмен значениями
+// const temp = a1;
+// a1 = a3;
+// a3 = temp;
+// console.log(a1, a3);
+
+// [a3, a1] = [a1, a3];
+// console.log(a1, a3);
+
+//Reterning 2 values from function
+// console.log(japaneseRestaurant.orderFood(2, 1));
+// const [appetizers, mainFood] = japaneseRestaurant.orderFood(2, 1);
+// console.log(appetizers, mainFood);
+
+//Вложенная деструктуризация
+// const nestedArr = [1, 2, [7, 9]];
+// console.log(nestedArr[2][1]);
+// const [ , , c1] = nestedArr;
+// console.log(c1);
+// const [q1, , [c1, c2]] = nestedArr;
+// console.log(q1, c1, c2);
+
+//Default values
+// const unknownArr = [3, 5];
+// const [n1 = 0, n2 = 0, n3 = 0, n4 = 0] = unknownArr;
+// console.log(n1, n2, n3, n4);
