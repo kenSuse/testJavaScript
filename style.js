@@ -1512,44 +1512,50 @@
 // console.log(encrypt('move'));
 
 
-//STAGE 7
-const japaneseRestaurant = {
-    name: 'Banzai',
-    location: '108 Markham Woods Rd, Londwood, USA',
-    categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
-    appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
-    mainMenu: ['Sushi', 'Ramen', 'Tempura'],
-    workingHours: {
-        wed: {
-            open: 10,
-            close: 23,
-        },
-        fri: {
-            open: 10,
-            close: 23,
-        },
-        sun: {
-            open: 12,
-            close: 23,
-        }
-    },
-    orderFood: function (appetizersIndex, mainMenuIndex) {
-        return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
-    },
-    foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
-        console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
-    },
-};
 
-japaneseRestaurant.foodDelivery({
-    mainMenuIndex: 1,
-    appetizersIndex: 2,
-    address: '8 Markham Woods Rd, Londwood, USA',
-    deliveryTime: '14:00',
-});
-japaneseRestaurant.foodDelivery({
-    address: '8 Markham Woods Rd, Londwood, USA',
-});
+//STAGE 7
+
+// const japaneseRestaurant = {
+//     name: 'Banzai',
+//     location: '108 Markham Woods Rd, Londwood, USA',
+//     categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
+//     appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
+//     mainMenu: ['Sushi', 'Ramen', 'Tempura'],
+//     workingHours: {
+//         wed: {
+//             open: 10,
+//             close: 23,
+//         },
+//         fri: {
+//             open: 10,
+//             close: 23,
+//         },
+//         sun: {
+//             open: 12,
+//             close: 23,
+//         }
+//     },
+//     orderFood: function (appetizersIndex, mainMenuIndex) {
+//         return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+//     },
+//     foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
+//         console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
+//     },
+// };
+//
+// japaneseRestaurant.foodDelivery({
+//     mainMenuIndex: 1,
+//     appetizersIndex: 2,
+//     address: '8 Markham Woods Rd, Londwood, USA',
+//     deliveryTime: '14:00',
+// });
+// japaneseRestaurant.foodDelivery({
+//     address: '8 Markham Woods Rd, Londwood, USA',
+// });
+
+
+
+
 //Деструктуризация Объектов
 // const {categories, name: restName, workingHours: hours} = japaneseRestaurant;
 // console.log(categories, restName, hours.sun);
@@ -1607,3 +1613,219 @@ japaneseRestaurant.foodDelivery({
 // const unknownArr = [3, 5];
 // const [n1 = 0, n2 = 0, n3 = 0, n4 = 0] = unknownArr;
 // console.log(n1, n2, n3, n4);
+
+
+
+
+
+
+//Оператор Spread
+
+// const arr = [1, 3, 5];
+//
+// //Плохой подход
+// const newArr = [8, 9, arr[0], arr[1], arr[2]];
+// console.log(newArr);
+//
+// //Верный подход с помощью оператора Spread
+// const newArrSpread = [7, 9, ...arr];
+// console.log(newArrSpread);
+// //Выводим в консоль все элементы по отдельности с помощью оператора Spread
+// console.log(...newArrSpread);
+
+
+// const japaneseRestaurant = {
+//     name: 'Banzai',
+//     location: '108 Markham Woods Rd, Londwood, USA',
+//     categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
+//     appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
+//     mainMenu: ['Sushi', 'Ramen', 'Tempura'],
+//     workingHours: {
+//         wed: {
+//             open: 10,
+//             close: 23,
+//         },
+//         fri: {
+//             open: 10,
+//             close: 23,
+//         },
+//         sun: {
+//             open: 12,
+//             close: 23,
+//         }
+//     },
+//     orderFood: function (appetizersIndex, mainMenuIndex) {
+//         return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+//     },
+//     foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
+//         console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
+//     },
+//     orderSushi: function (ing1, ing2, ing3) {
+//         console.log(`your order ${ing1}, ${ing2}, ${ing3}!`);
+//     }
+// };
+
+// const newMenu = [...japaneseRestaurant.mainMenu, 'Miso Salmon'];
+// console.log(...newMenu);
+
+//Array copying. Копирование массива
+// const categoriesCopy = [...japaneseRestaurant.categories];
+// console.log(categoriesCopy);
+// console.log(...categoriesCopy);
+
+//Merge array. Слияние массивов
+// const menu = [...japaneseRestaurant.appetizers, ...japaneseRestaurant.mainMenu];
+// console.log(menu);
+
+//Iterable - arays, string, maps, sets. OBJECTS aren't iterable.(Объекты не являются iterable) Iterable - то что может быть перебранным.
+
+// const ingridients = [prompt(`Ingridient 1 for your sushi?`), prompt(`Ingridient 2 for your sushi?`), prompt(`Ingridient 3 for your sushi?`)];
+// japaneseRestaurant.orderSushi(...ingridients);
+
+//Object
+// const newJapaneseRestaurant = { ...japaneseRestaurant, owner: 'Suzuki', foundationDate: 2002 };
+// console.log(newJapaneseRestaurant);
+
+// const japaneseRestaurantCopy = {...japaneseRestaurant};
+// japaneseRestaurantCopy.name = 'Suzuki Sushi';
+// console.log(japaneseRestaurantCopy.name);
+// console.log(japaneseRestaurant.name);
+
+
+
+
+
+
+
+//Паттерн Rest и Параметры Rest
+
+const japaneseRestaurant = {
+    name: 'Banzai',
+    location: '108 Markham Woods Rd, Londwood, USA',
+    categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
+    appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
+    mainMenu: ['Sushi', 'Ramen', 'Tempura'],
+    workingHours: {
+        wed: {
+            open: 10,
+            close: 23,
+        },
+        fri: {
+            open: 10,
+            close: 23,
+        },
+        sun: {
+            open: 12,
+            close: 23,
+        },
+        sat: {
+            open: 0,
+            close: 24,
+        }
+    },
+    orderFood: function (appetizersIndex, mainMenuIndex) {
+        return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+    },
+    foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
+        console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
+    },
+    orderSushi: function (ing1, ing2, ing3) {
+        console.log(`your order ${ing1}, ${ing2}, ${ing3}!`);
+    },
+    orderNoodls: function (noodls, ...nextIngridients) {
+        console.log(`Your order - ${noodls}`);
+        console.log(`Дополнение к основному заказы:`);
+        for (let a = 0; a < nextIngridients.length; a++) {
+            console.log(nextIngridients[a]);
+        }
+        if (nextIngridients == 0) {
+            console.log('Ваш заказ без дополнительных ингредиентов');
+        }
+    }
+};
+
+
+//Оператор Spreat распаковывает массив в то время как паттерн Rest наоборот упаковывает несколько элементов в массив.
+//Оператор Spreat (...) указывается с право от знака присваивания.
+
+// const arr = [1, 2, ...[5, 7, 9]];
+
+//Оператор Rest указывается с лева от знака присваивания (=). Rest - Это остаток или оставшиеся элементы массива. Используется для создания массива из оставшихся элементов.
+
+//1.Rest pattern with destructuring
+
+//Rest pattern with arrays
+// const [a1, a2, ...items] = [1, 2, 3, 5];
+// console.log(a1,a2, items);
+
+// const [appetizers1, , appetizers2, ...otherFood] = [...japaneseRestaurant.appetizers, ...japaneseRestaurant.mainMenu];
+// console.log(appetizers1, appetizers2, otherFood);
+
+//Rest pattern with object
+// const {sun, sat, ...working} = japaneseRestaurant.workingHours;
+// console.log(sun, sat, working);
+
+
+//2.Rest pattern with fanctions
+
+// function sum(...sum) {
+//     console.log(sum);
+//     let result = 0;
+//     for (let a = 0; a < sum.length; a++) {
+//         result += sum[a];
+//     }
+//     return result;
+// };
+// console.log(sum(2, 5));
+// console.log(sum(2, 5, 7, 6, 2));
+//
+// const numbersArray = [3, 44, 2];
+// console.log(sum(...numbersArray));
+//
+// japaneseRestaurant.orderNoodls('Color Noodle', 'Chicken', 'Onion', 'Meat');
+// japaneseRestaurant.orderNoodls('nuodls one')
+
+
+
+
+//Вычисление логических выражений по сакращенной схеме
+
+//Логические операторы могут использовать любые тапы данных, могут возвращать любые типы данных.
+//OR(||)
+// console.log(5 || 'Hello!');
+// console.log('' || 'Hello!');
+// console.log(true || 0);
+// console.log(undefined || null);
+//
+// console.log(undefined || '' || 0 || 'Hey!' || 23 || null);
+//
+// japaneseRestaurant.guestsNumbers = 8;
+// const guests = japaneseRestaurant.guestsNumbers ? japaneseRestaurant.guestsNumbers : 5;
+// console.log(guests);
+//
+// const guests2 = japaneseRestaurant.guestsNumbers || 5;
+// console.log(guests2);
+
+//AND (&&)
+// console.log(0 && 'Hello!');
+// console.log(1 && 'Hello!');
+// console.log('hey' && 34 && 0 && 44 && null);
+//
+// if(japaneseRestaurant.orderNoodls) {
+//     japaneseRestaurant.orderNoodls('Something');
+// }
+//
+// japaneseRestaurant.orderNoodls && japaneseRestaurant.orderNoodls('Something');
+
+//Итого:
+// Оператор OR (||) будет возвращать  первое trues значение всех операндов. Если они являются false значениями,  будет возвращен последний из этих операндов.
+// Оператор AND (&&) будет возвращать первое false значение если все значения являются trues то будет возвращено последнее trues значение.
+
+
+
+//Оператор нулевого слияния (??)
+
+// japaneseRestaurant.guestsNumbers = 0;
+//Nullish values: null and undefined (NOT 0 or '')
+// const guests3 = japaneseRestaurant.guestsNumbers ?? 5;
+// console.log(guests3);
