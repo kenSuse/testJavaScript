@@ -1553,7 +1553,9 @@
 //     address: '8 Markham Woods Rd, Londwood, USA',
 // });
 
-
+//Деструктуризация — это способ распаковки из массивов и объектов в отдельные переменные.
+//Деструктуризация массивов (arrays) - []
+//Деструктуризация объектов (objects) - {}
 
 
 //Деструктуризация Объектов
@@ -1699,50 +1701,50 @@
 
 //Паттерн Rest и Параметры Rest
 
-const japaneseRestaurant = {
-    name: 'Banzai',
-    location: '108 Markham Woods Rd, Londwood, USA',
-    categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
-    appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
-    mainMenu: ['Sushi', 'Ramen', 'Tempura'],
-    workingHours: {
-        wed: {
-            open: 10,
-            close: 23,
-        },
-        fri: {
-            open: 10,
-            close: 23,
-        },
-        sun: {
-            open: 12,
-            close: 23,
-        },
-        sat: {
-            open: 0,
-            close: 24,
-        }
-    },
-    orderFood: function (appetizersIndex, mainMenuIndex) {
-        return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
-    },
-    foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
-        console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
-    },
-    orderSushi: function (ing1, ing2, ing3) {
-        console.log(`your order ${ing1}, ${ing2}, ${ing3}!`);
-    },
-    orderNoodls: function (noodls, ...nextIngridients) {
-        console.log(`Your order - ${noodls}`);
-        console.log(`Дополнение к основному заказы:`);
-        for (let a = 0; a < nextIngridients.length; a++) {
-            console.log(nextIngridients[a]);
-        }
-        if (nextIngridients == 0) {
-            console.log('Ваш заказ без дополнительных ингредиентов');
-        }
-    }
-};
+// const japaneseRestaurant = {
+//     name: 'Banzai',
+//     location: '108 Markham Woods Rd, Londwood, USA',
+//     categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
+//     appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
+//     mainMenu: ['Sushi', 'Ramen', 'Tempura'],
+//     workingHours: {
+//         wed: {
+//             open: 10,
+//             close: 23,
+//         },
+//         fri: {
+//             open: 10,
+//             close: 23,
+//         },
+//         sun: {
+//             open: 12,
+//             close: 23,
+//         },
+//         sat: {
+//             open: 0,
+//             close: 24,
+//         }
+//     },
+//     orderFood: function (appetizersIndex, mainMenuIndex) {
+//         return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+//     },
+//     foodDelivery: function ({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
+//         console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
+//     },
+//     orderSushi: function (ing1, ing2, ing3) {
+//         console.log(`your order ${ing1}, ${ing2}, ${ing3}!`);
+//     },
+//     orderNoodls: function (noodls, ...nextIngridients) {
+//         console.log(`Your order - ${noodls}`);
+//         console.log(`Дополнение к основному заказы:`);
+//         for (let a = 0; a < nextIngridients.length; a++) {
+//             console.log(nextIngridients[a]);
+//         }
+//         if (nextIngridients == 0) {
+//             console.log('Ваш заказ без дополнительных ингредиентов');
+//         }
+//     }
+// };
 
 
 //Оператор Spreat распаковывает массив в то время как паттерн Rest наоборот упаковывает несколько элементов в массив.
@@ -1824,8 +1826,82 @@ const japaneseRestaurant = {
 
 
 //Оператор нулевого слияния (??)
+//Nullish values: null and undefined (NOT 0 or '')
 
 // japaneseRestaurant.guestsNumbers = 0;
-//Nullish values: null and undefined (NOT 0 or '')
 // const guests3 = japaneseRestaurant.guestsNumbers ?? 5;
 // console.log(guests3);
+
+
+
+
+//TASK 1
+
+//Object game
+const game = {
+    team1: 'REAL MADRID',
+    team2: 'BARCELONA',
+    players: [
+        [
+            'Courtois',
+            'Vazquez',
+            'Militao',
+            'Nacho',
+            'Mendy',
+            'Casemiro',
+            'Valverde',
+            'Modrich',
+            'Kroos',
+            'Vinicius',
+            'Benzema',
+        ],
+        [
+            'Stegen',
+            'Mingueza',
+            'Araujo',
+            'Lenglet',
+            'Dest',
+            'Busquets',
+            'Jong',
+            'Alba',
+            'Messi',
+            'Pedri',
+            'Dembele',
+        ],
+    ],
+    score: '2:1',
+    scored: ['Kroos', 'Benzema', 'Mingueza'],
+    date: 'Apr 10th, 2021',
+    odds: {
+        team1: 1.48,
+        draw: 2.53,
+        team2: 4.25,
+    },
+};
+//Создаем отдельные массивы с игроками для каждой команды
+const [player1, player2] = game.players;
+//Первый игрок — вратарь, остальные — полевые игроки
+const [Courtois, ...fieldPlayersTeam1] = player1;
+const [Stegen, ...fieldPlayersTeam2] = player2;
+//Создайте массив allPlayers, содержащий всех игроков обеих команд (22 игрока)
+const allPlayers = [...player1, ...player2];
+//Создайте новый массив (players1Total), содержащий всех исходных игроков team1, а также «Марсело», «Иско», «Асенсио», «Диас» и «Одриосола».
+const players1Total = [...player1, 'Marcelo', 'Isco', 'Asensio', 'Diaz', 'Odriozola'];
+//На основе объекта game.odds создайте по одной переменной для каждого шанса
+//Простой вариант
+// const {team1, draw, team2} = game.odds;
+//Сложный вариант
+const {odds: {team1, draw, team2}} = game;
+//Функция printGoals, которая принимает произвольное количество имен игроков
+function printGoals(...nameField) {
+    for(let a = 0; a< nameField.length; a++) {
+        console.log(nameField[a]);
+    }
+    console.log(`${nameField.length} гола было забито!`);
+}
+printGoals(...game.scored);
+printGoals('Mingueza', 'Messi', 'Modrich', 'Nacho');
+//Команда с более низким коэффициентом выиграет с большей вероятностью
+team1 < team2 && console.log(`${game.team1} game won!!!`);
+team2 < team1 && console.log(`${game.team2} game won!!!`);
+
