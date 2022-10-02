@@ -1838,6 +1838,237 @@
 //TASK 1
 
 //Object game
+// const game = {
+//     team1: 'REAL MADRID',
+//     team2: 'BARCELONA',
+//     players: [
+//         [
+//             'Courtois',
+//             'Vazquez',
+//             'Militao',
+//             'Nacho',
+//             'Mendy',
+//             'Casemiro',
+//             'Valverde',
+//             'Modrich',
+//             'Kroos',
+//             'Vinicius',
+//             'Benzema',
+//         ],
+//         [
+//             'Stegen',
+//             'Mingueza',
+//             'Araujo',
+//             'Lenglet',
+//             'Dest',
+//             'Busquets',
+//             'Jong',
+//             'Alba',
+//             'Messi',
+//             'Pedri',
+//             'Dembele',
+//         ],
+//     ],
+//     score: '2:1',
+//     scored: ['Kroos', 'Benzema', 'Mingueza'],
+//     date: 'Apr 10th, 2021',
+//     odds: {
+//         team1: 1.48,
+//         draw: 2.53,
+//         team2: 4.25,
+//     },
+// };
+// //Создаем отдельные массивы с игроками для каждой команды
+// const [player1, player2] = game.players;
+// //Первый игрок — вратарь, остальные — полевые игроки
+// const [Courtois, ...fieldPlayersTeam1] = player1;
+// const [Stegen, ...fieldPlayersTeam2] = player2;
+// //Создайте массив allPlayers, содержащий всех игроков обеих команд (22 игрока)
+// const allPlayers = [...player1, ...player2];
+// //Создайте новый массив (players1Total), содержащий всех исходных игроков team1, а также «Марсело», «Иско», «Асенсио», «Диас» и «Одриосола».
+// const players1Total = [...player1, 'Marcelo', 'Isco', 'Asensio', 'Diaz', 'Odriozola'];
+// //На основе объекта game.odds создайте по одной переменной для каждого шанса
+// //Простой вариант
+// // const {team1, draw, team2} = game.odds;
+// //Сложный вариант
+// const {odds: {team1, draw, team2}} = game;
+// //Функция printGoals, которая принимает произвольное количество имен игроков
+// function printGoals(...nameField) {
+//     for(let a = 0; a< nameField.length; a++) {
+//         console.log(nameField[a]);
+//     }
+//     console.log(`${nameField.length} гола было забито!`);
+// }
+// printGoals(...game.scored);
+// printGoals('Mingueza', 'Messi', 'Modrich', 'Nacho');
+// //Команда с более низким коэффициентом выиграет с большей вероятностью
+// team1 < team2 && console.log(`${game.team1} game won!!!`);
+// team2 < team1 && console.log(`${game.team2} game won!!!`);
+
+
+
+
+
+
+
+//Массив дней недели
+// const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+//
+// const workingHours = {
+//     //подставляем имена дней беря их из массива weekdays
+//     [weekdays[2]]: {
+//         open: 10,
+//         close: 23,
+//     },
+//     [weekdays[4]]: {
+//         open: 10,
+//         close: 23,
+//     },
+//     [weekdays[5]]: {
+//         open: 12,
+//         close: 23,
+//     },
+//     [weekdays[6]]: {
+//         open: 0,
+//         close: 24,
+//     }
+// };
+//
+// const japaneseRestaurant = {
+//     name: 'Banzai',
+//     location: '108 Markham Woods Rd, Londwood, USA',
+//     categories: ['Japanese', 'Sushi', 'Vegetarian', 'Organic'],
+//     appetizers: ['Seaweed salad', 'Tempura shrimp', 'Edamane', 'Sushi rice'],
+//     mainMenu: ['Sushi', 'Ramen', 'Tempura'],
+//
+//     //Добавление объекта в japaneseRestaurant
+//     workingHours,
+//
+//     //Старый вариант отображения метода в объекте
+//     // orderFood: function (appetizersIndex, mainMenuIndex) {
+//     //     return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+//     // },
+//
+//     //Новый вариант
+//     orderFood(appetizersIndex, mainMenuIndex) {
+//         return [this.appetizers[appetizersIndex], this.mainMenu[mainMenuIndex]];
+//     },
+//     foodDelivery({ mainMenuIndex = 0, appetizersIndex = 0, address, deliveryTime = '18:00' }) {
+//         console.log(`Your order on the way to uou! ${this.mainMenu[mainMenuIndex]} and ${this.appetizers[appetizersIndex]} will be arrived to ${address} at ${deliveryTime}`);
+//     },
+//     orderSushi(ing1, ing2, ing3) {
+//         console.log(`your order ${ing1}, ${ing2}, ${ing3}!`);
+//     },
+//     orderNoodls(noodls, ...nextIngridients) {
+//         console.log(`Your order - ${noodls}`);
+//         console.log(`Дополнение к основному заказы:`);
+//         for (let a = 0; a < nextIngridients.length; a++) {
+//             console.log(nextIngridients[a]);
+//         }
+//         if (nextIngridients == 0) {
+//             console.log('Ваш заказ без дополнительных ингредиентов');
+//         }
+//     }
+// };
+// console.log(japaneseRestaurant);
+
+
+
+
+// const menu = [...japaneseRestaurant.appetizers, ...japaneseRestaurant.mainMenu];
+
+//Цикл for of
+// for(const a of menu) {
+//     console.log(a);
+// }
+//Цикл for of по индексу
+// for(const x of menu.entries()) {
+//     console.log(`${x[0] + 1} ${x[1]}`);
+// }
+// console.log([...menu.entries()]);
+
+//Улучшеный цикл по идексу .entries()
+// for(const [index, food]  of menu.entries()) {
+//     console.log(index + 1, food);
+// }
+
+
+
+
+// if (japaneseRestaurant.workingHours.thu) {
+//     console.log(japaneseRestaurant.workingHours.thu.open);
+// }
+// if(japaneseRestaurant.workingHours.fri) {
+//     console.log(japaneseRestaurant.workingHours.fri.open);
+// }
+
+
+//Опциональная последовательность или Опциональная цепочка
+
+//Опциональная последовательность для свойств
+
+//Происходит проверка есть ли в thu? если есть оно выводится в консоль если его нет возврощается undefined
+// console.log(japaneseRestaurant.workingHours.thu?.open);
+// console.log(japaneseRestaurant.workingHours?.thu?.open);
+//
+// const weekdaysOfDay = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for(const day of weekdaysOfDay) {
+//     const result = japaneseRestaurant.workingHours[day]?.open ?? 'not open';
+//     result === 'not open' ? console.log(`${day} never open`) : console.log(`${day} open ${result} hours`);
+// }
+
+//Опциональная последовательность для методов объекта
+// console.log(japaneseRestaurant.orderFood?.(1, 2) ?? 'Method does not exist');
+// console.log(japaneseRestaurant.orderFood2?.(1, 2) ?? 'Method does not exist');
+
+//Опциональная последовательность для массивов
+// const post = [
+//     {
+//         name: 'JS is cool!',
+//         userName: 'Ted',
+//     },
+//     {
+//         name: 'JS is shit!',
+//         userNAme: 'Dick',
+//     },
+// ];
+// console.log(post[0]?.name ?? 'not object');
+// console.log(post[1]?.name ?? 'not object');
+// console.log(post[2]?.name ?? 'not object');
+
+//Проверка на пустой массив
+// const users = [];
+// console.log(users[0]?.name ?? 'The array is empty');
+
+
+//Перебор имен
+// const props = Object.keys(workingHours);
+// console.log(props);
+// console.log(`${japaneseRestaurant.name} open ${props.length} days in a week.`);
+//
+// for(const day of Object.keys(workingHours)) {
+//     console.log(day);
+// }
+
+//Перебор значений
+// const val = Object.values(workingHours);
+// console.log(val);
+
+//Перебор по имени и значению
+// const entries = Object.entries(workingHours);
+// console.log(entries);
+//
+// for(const entri of entries) {
+//     console.log(entri);
+// }
+
+// for(const [day, {open, close}] of entries) {
+//     console.log(`Restoran ${japaneseRestaurant.name} в ${day} работает с ${open} до ${close}`);
+// }
+
+
+//TASK 2
+
 const game = {
     team1: 'REAL MADRID',
     team2: 'BARCELONA',
@@ -1870,7 +2101,7 @@ const game = {
         ],
     ],
     score: '2:1',
-    scored: ['Kroos', 'Benzema', 'Mingueza'],
+    scored: ['Kroos', 'Benzema', 'Mingueza', 'Benzema', 'Kroos'],
     date: 'Apr 10th, 2021',
     odds: {
         team1: 1.48,
@@ -1878,30 +2109,29 @@ const game = {
         team2: 4.25,
     },
 };
-//Создаем отдельные массивы с игроками для каждой команды
-const [player1, player2] = game.players;
-//Первый игрок — вратарь, остальные — полевые игроки
-const [Courtois, ...fieldPlayersTeam1] = player1;
-const [Stegen, ...fieldPlayersTeam2] = player2;
-//Создайте массив allPlayers, содержащий всех игроков обеих команд (22 игрока)
-const allPlayers = [...player1, ...player2];
-//Создайте новый массив (players1Total), содержащий всех исходных игроков team1, а также «Марсело», «Иско», «Асенсио», «Диас» и «Одриосола».
-const players1Total = [...player1, 'Marcelo', 'Isco', 'Asensio', 'Diaz', 'Odriozola'];
-//На основе объекта game.odds создайте по одной переменной для каждого шанса
-//Простой вариант
-// const {team1, draw, team2} = game.odds;
-//Сложный вариант
-const {odds: {team1, draw, team2}} = game;
-//Функция printGoals, которая принимает произвольное количество имен игроков
-function printGoals(...nameField) {
-    for(let a = 0; a< nameField.length; a++) {
-        console.log(nameField[a]);
-    }
-    console.log(`${nameField.length} гола было забито!`);
-}
-printGoals(...game.scored);
-printGoals('Mingueza', 'Messi', 'Modrich', 'Nacho');
-//Команда с более низким коэффициентом выиграет с большей вероятностью
-team1 < team2 && console.log(`${game.team1} game won!!!`);
-team2 < team1 && console.log(`${game.team2} game won!!!`);
 
+//1.
+for (const [count, name] of game.scored.entries()) {
+    console.log(`Goal ${count + 1} - ${name}`);
+}
+
+//2.
+const sum = Object.values(game.odds);
+let resultSum = 0;
+for (const res of sum) {
+    resultSum += res;
+}
+console.log(resultSum / sum.length);
+
+//3.
+for (const [name, odd] of Object.entries(game.odds)) {
+    const nweTeextString = `${name}` === 'draw' ? `draw:` : `${game[name]} victory:`;
+    console.log(`Rate for ${nweTeextString} ${odd}`);
+}
+
+//4.
+const goalScorers = {};
+for (const a of game.scored) {
+    goalScorers[a] ? goalScorers[a]++ : goalScorers[a] = 1;
+}
+console.log(goalScorers);
