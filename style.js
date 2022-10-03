@@ -2138,31 +2138,47 @@
 
 
 
+
+
+
 //SET (Множество)
 // Отличия множества от массива
 // 1.Все элементы множества  уникальны
 // 2.Порядок определение элементов в массиве не определенный.
 
-const orders = new Set([
-    'Sushi', 'Ramen', 'Sushi', 'Tempura', 'Ramen', 'Sushi'
-]);
-console.log(orders);
-
-console.log(new Set('Hello!'));
-console.log(new Set());
+// const orders = new Set(['Sushi', 'Ramen', 'Sushi', 'Tempura', 'Ramen', 'Sushi']);
+// console.log(orders);
+//
+// console.log(new Set('Hello!'));
+// console.log(new Set());
 //size является свойством (нет круглых скобок)
-console.log(orders.size);
+// console.log(orders.size);
 //has проверяет есть такое значение в множестве и выводит true || false
-console.log(orders.has('Sushi'));
-console.log(orders.has('pizza'));
-
-orders.add('Edamame');
-orders.add('Edamame');
-orders.delete('Tempura');
-console.log(orders);
+// console.log(orders.has('Sushi'));
+// console.log(orders.has('pizza'));
+//
+// orders.add('Edamame');
+// orders.add('Edamame');
+// orders.delete('Tempura');
+// console.log(orders);
 // orders.clear();
 // console.log(orders);
 //Перебор элментов в Set и вывод каждого в консоль
-for(const order of orders) {
-    console.log(order);
-}
+// for(const order of orders) {
+//     console.log(order);
+// }
+
+//Удаляем дублирующие значение
+const mealIngridients = ['Rice', 'Pepper', 'Garlic', 'Pepper', 'Garlic', 'Meat', 'Meat', 'Garlic'];
+const resultIngridients = new Set(mealIngridients);
+console.log(resultIngridients);
+//Помещаем Set в массив с помощью оператора Spreat
+const mailIngrUnique = [...resultIngridients];
+console.log(mailIngrUnique);
+//Узнать колличество в массиве не повторяющихся элементов
+console.log(new Set(mealIngridients).size);
+console.log(new Set('Striing texxt nammberr').size);
+
+
+
+//Map
