@@ -2069,69 +2069,100 @@
 
 //TASK 2
 
-const game = {
-    team1: 'REAL MADRID',
-    team2: 'BARCELONA',
-    players: [
-        [
-            'Courtois',
-            'Vazquez',
-            'Militao',
-            'Nacho',
-            'Mendy',
-            'Casemiro',
-            'Valverde',
-            'Modrich',
-            'Kroos',
-            'Vinicius',
-            'Benzema',
-        ],
-        [
-            'Stegen',
-            'Mingueza',
-            'Araujo',
-            'Lenglet',
-            'Dest',
-            'Busquets',
-            'Jong',
-            'Alba',
-            'Messi',
-            'Pedri',
-            'Dembele',
-        ],
-    ],
-    score: '2:1',
-    scored: ['Kroos', 'Benzema', 'Mingueza', 'Benzema', 'Kroos'],
-    date: 'Apr 10th, 2021',
-    odds: {
-        team1: 1.48,
-        draw: 2.53,
-        team2: 4.25,
-    },
-};
+// const game = {
+//     team1: 'REAL MADRID',
+//     team2: 'BARCELONA',
+//     players: [
+//         [
+//             'Courtois',
+//             'Vazquez',
+//             'Militao',
+//             'Nacho',
+//             'Mendy',
+//             'Casemiro',
+//             'Valverde',
+//             'Modrich',
+//             'Kroos',
+//             'Vinicius',
+//             'Benzema',
+//         ],
+//         [
+//             'Stegen',
+//             'Mingueza',
+//             'Araujo',
+//             'Lenglet',
+//             'Dest',
+//             'Busquets',
+//             'Jong',
+//             'Alba',
+//             'Messi',
+//             'Pedri',
+//             'Dembele',
+//         ],
+//     ],
+//     score: '2:1',
+//     scored: ['Kroos', 'Benzema', 'Mingueza', 'Benzema', 'Kroos'],
+//     date: 'Apr 10th, 2021',
+//     odds: {
+//         team1: 1.48,
+//         draw: 2.53,
+//         team2: 4.25,
+//     },
+// };
+//
+// //1.
+// for (const [count, name] of game.scored.entries()) {
+//     console.log(`Goal ${count + 1} - ${name}`);
+// }
+//
+// //2.
+// const sum = Object.values(game.odds);
+// let resultSum = 0;
+// for (const res of sum) {
+//     resultSum += res;
+// }
+// console.log(resultSum / sum.length);
+//
+// //3.
+// for (const [name, odd] of Object.entries(game.odds)) {
+//     const nweTeextString = `${name}` === 'draw' ? `draw:` : `${game[name]} victory:`;
+//     console.log(`Rate for ${nweTeextString} ${odd}`);
+// }
+//
+// //4.
+// const goalScorers = {};
+// for (const a of game.scored) {
+//     goalScorers[a] ? goalScorers[a]++ : goalScorers[a] = 1;
+// }
+// console.log(goalScorers);
 
-//1.
-for (const [count, name] of game.scored.entries()) {
-    console.log(`Goal ${count + 1} - ${name}`);
-}
 
-//2.
-const sum = Object.values(game.odds);
-let resultSum = 0;
-for (const res of sum) {
-    resultSum += res;
-}
-console.log(resultSum / sum.length);
 
-//3.
-for (const [name, odd] of Object.entries(game.odds)) {
-    const nweTeextString = `${name}` === 'draw' ? `draw:` : `${game[name]} victory:`;
-    console.log(`Rate for ${nweTeextString} ${odd}`);
-}
+//SET (Множество)
+// Отличия множества от массива
+// 1.Все элементы множества  уникальны
+// 2.Порядок определение элементов в массиве не определенный.
 
-//4.
-const goalScorers = {};
-for (const a of game.scored) {
-    goalScorers[a] ? goalScorers[a]++ : goalScorers[a] = 1;
+const orders = new Set([
+    'Sushi', 'Ramen', 'Sushi', 'Tempura', 'Ramen', 'Sushi'
+]);
+console.log(orders);
+
+console.log(new Set('Hello!'));
+console.log(new Set());
+//size является свойством (нет круглых скобок)
+console.log(orders.size);
+//has проверяет есть такое значение в множестве и выводит true || false
+console.log(orders.has('Sushi'));
+console.log(orders.has('pizza'));
+
+orders.add('Edamame');
+orders.add('Edamame');
+orders.delete('Tempura');
+console.log(orders);
+// orders.clear();
+// console.log(orders);
+//Перебор элментов в Set и вывод каждого в консоль
+for(const order of orders) {
+    console.log(order);
 }
-console.log(goalScorers);
