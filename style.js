@@ -2169,16 +2169,43 @@
 // }
 
 //Удаляем дублирующие значение
-const mealIngridients = ['Rice', 'Pepper', 'Garlic', 'Pepper', 'Garlic', 'Meat', 'Meat', 'Garlic'];
-const resultIngridients = new Set(mealIngridients);
-console.log(resultIngridients);
+// const mealIngridients = ['Rice', 'Pepper', 'Garlic', 'Pepper', 'Garlic', 'Meat', 'Meat', 'Garlic'];
+// const resultIngridients = new Set(mealIngridients);
+// console.log(resultIngridients);
 //Помещаем Set в массив с помощью оператора Spreat
-const mailIngrUnique = [...resultIngridients];
-console.log(mailIngrUnique);
+// const mailIngrUnique = [...resultIngridients];
+// console.log(mailIngrUnique);
 //Узнать колличество в массиве не повторяющихся элементов
-console.log(new Set(mealIngridients).size);
-console.log(new Set('Striing texxt nammberr').size);
+// console.log(new Set(mealIngridients).size);
+// console.log(new Set('Striing texxt nammberr').size);
 
 
 
 //Map
+//Создаем пустой объект MEP
+const restaurant = new Map();
+//Добавляем новый элемент при помощи set. Первое значение - ключ, второе - значение
+restaurant.set('name', 'Bench');
+restaurant.set(1, 'London, England');
+restaurant.set(2, 'Paris, France');
+restaurant.set('categories', ['Japanese', 'Sushi', 'Vegetarian', 'Organic']).set('open', 10).set('close', 24).set(true, 'Bench is open :)').set(false, 'Banch is closed :(');
+//Получаем данные по ключу
+// console.log(restaurant.get('name'));
+// console.log(restaurant.get(true));
+
+const currentTime = 9;
+console.log(restaurant.get(currentTime > restaurant.get('open') && currentTime < restaurant.get('close')));
+
+//has Проверяет есть ли какойто ключ в этой Mep
+console.log(restaurant.has('categories'));
+//Удалить элемент по ключу
+restaurant.delete(1);
+console.log(restaurant);
+console.log(restaurant.size);
+// restaurant.clear();
+
+console.log(restaurant.set(document.querySelector('h1'), 'Heading'));
+
+const arr = [1, 2, 3];
+restaurant.set(arr, 'hello!');
+console.log(restaurant.get(arr));
