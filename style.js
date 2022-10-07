@@ -2183,29 +2183,89 @@
 
 //Map
 //Создаем пустой объект MEP
-const restaurant = new Map();
+// const restaurant = new Map();
 //Добавляем новый элемент при помощи set. Первое значение - ключ, второе - значение
-restaurant.set('name', 'Bench');
-restaurant.set(1, 'London, England');
-restaurant.set(2, 'Paris, France');
-restaurant.set('categories', ['Japanese', 'Sushi', 'Vegetarian', 'Organic']).set('open', 10).set('close', 24).set(true, 'Bench is open :)').set(false, 'Banch is closed :(');
+// restaurant.set('name', 'Bench');
+// restaurant.set(1, 'London, England');
+// restaurant.set(2, 'Paris, France');
+// restaurant.set('categories', ['Japanese', 'Sushi', 'Vegetarian', 'Organic']).set('open', 10).set('close', 24).set(true, 'Bench is open :)').set(false, 'Banch is closed :(');
 //Получаем данные по ключу
 // console.log(restaurant.get('name'));
 // console.log(restaurant.get(true));
 
-const currentTime = 9;
-console.log(restaurant.get(currentTime > restaurant.get('open') && currentTime < restaurant.get('close')));
+// const currentTime = 9;
+// console.log(restaurant.get(currentTime > restaurant.get('open') && currentTime < restaurant.get('close')));
 
 //has Проверяет есть ли какойто ключ в этой Mep
-console.log(restaurant.has('categories'));
+// console.log(restaurant.has('categories'));
 //Удалить элемент по ключу
-restaurant.delete(1);
-console.log(restaurant);
-console.log(restaurant.size);
+// restaurant.delete(1);
+// console.log(restaurant);
+// console.log(restaurant.size);
 // restaurant.clear();
 
-console.log(restaurant.set(document.querySelector('h1'), 'Heading'));
+// console.log(restaurant.set(document.querySelector('h1'), 'Heading'));
 
-const arr = [1, 2, 3];
-restaurant.set(arr, 'hello!');
-console.log(restaurant.get(arr));
+// const arr = [1, 2, 3];
+// restaurant.set(arr, 'hello!');
+// console.log(restaurant.get(arr));
+
+
+//Массив дней недели
+// const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+//
+// const workingHours = {
+//     //подставляем имена дней беря их из массива weekdays
+//     [weekdays[2]]: {
+//         open: 10,
+//         close: 23,
+//     },
+//     [weekdays[4]]: {
+//         open: 10,
+//         close: 23,
+//     },
+//     [weekdays[5]]: {
+//         open: 12,
+//         close: 23,
+//     },
+//     [weekdays[6]]: {
+//         open: 0,
+//         close: 24,
+//     }
+// };
+//Создаём Map масив в котором будут массивы (много элементов) с ключем и значением
+// const question = new Map([['question', 'What is the most popular programming language for front-end?'], [1, 'JavaScript'], [2, 'Java'], [3, 'Python'], ['correctAnswer', 1], [true, 'Correct answer :D'], [false, 'This is incorrect :( Try again!']]);
+// console.log(question);
+
+// console.log(Object.entries(workingHours));
+//Преобразуем объект workingHours в workingHoursMap (Map)
+// const workingHoursMap = new Map(Object.entries(workingHours));
+// console.log(workingHoursMap);
+
+//Выводим значение по ключу question
+// console.log(question.get('question'));
+//Проходим по Map и везде где в ключе установлено число выводим в консоль ключ и значение
+// for(const [key, value] of question) {
+//     if(typeof key === 'number') {
+//         console.log(`${key}: ${value}`);
+//     }
+// }
+//Запрашиваем у пользователя ответ и выводим варианты ответов
+// const answer = Number(prompt(`Choose the option number`));
+//Проверяем ответ и выводим результат в консоль
+// console.log(question.get(question.get('correctAnswer') === answer));
+
+//Converting maps to arrays. Конвертируем в массивы
+// const res = [...question];
+// console.log(res);
+
+//для Map мы можем получать entries, keys, values
+//для keys и values можно указать оператор Spread (...) В этом случае мы получим результат в массивах
+// console.log(question.entries());
+// console.log(question.keys());
+// console.log(question.values());
+
+
+
+//TASK3
+
