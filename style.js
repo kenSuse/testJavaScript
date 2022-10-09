@@ -2269,3 +2269,82 @@
 
 //TASK3
 
+// const events = new Map([
+//     [19, 'Goal'],
+//     [21, 'Substitution'],
+//     [43, 'Goal'],
+//     [56, 'Substitution'],
+//     [69, 'Yellow card'],
+//     [73, 'Substitution'],
+//     [75, 'Yellow card'],
+//     [79, 'Substitution'],
+//     [81, 'Red card'],
+//     [93, 'Goal'],
+// ]);
+//
+//
+//
+// const game = {
+//     team1: 'REAL MADRID',
+//     team2: 'BARCELONA',
+//     players: [
+//         [
+//             'Courtois',
+//             'Vazquez',
+//             'Militao',
+//             'Nacho',
+//             'Mendy',
+//             'Casemiro',
+//             'Valverde',
+//             'Modrich',
+//             'Kroos',
+//             'Vinicius',
+//             'Benzema',
+//         ],
+//         [
+//             'Stegen',
+//             'Mingueza',
+//             'Araujo',
+//             'Lenglet',
+//             'Dest',
+//             'Busquets',
+//             'Jong',
+//             'Alba',
+//             'Messi',
+//             'Pedri',
+//             'Dembele',
+//         ],
+//     ],
+//     score: '2:1',
+//     scored: ['Kroos', 'Benzema', 'Mingueza'],
+//     date: 'Apr 10th, 2021',
+//     odds: {
+//         team1: 1.48,
+//         draw: 2.53,
+//         team2: 4.25,
+//     },
+// };
+
+//Создайте массив gameEvents с различными игровыми событиями, которые могут произойти (без дубликатов)
+// const gameEvents = [...new Set(events.values())];
+// console.log(gameEvents);
+
+//После окончания игры выяснилось, что желтая карточка с 75-й минуты была несправедливой. Поэтому удалите это событие из журнала игровых событий.
+// events.delete(75);
+// console.log(events);
+//Подсчитайте и запишите в консоль следующее: «В среднем событие происходило каждые 11 минут» (имейте в виду, что в игре 90 минут).
+// console.log(`On average, an event happened every ${90 / events.size} minutes`);
+//Прокрутите карту событий и запишите каждый элемент в консоль, отметив, находится ли он в первой или во второй половине (после 45 минут) игры например:
+//[ПЕРВЫЙ ТАЙМ] 19: Гол
+// for(const [key, value] of events) {
+//     const half = key<= 45 ? 'FIRST' : 'SECOND';
+//     console.log(`[${half} HALF] ${key}: ${value}`);
+// }
+
+
+
+
+
+
+//STRING
+
