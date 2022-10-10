@@ -2347,4 +2347,159 @@
 
 
 //STRING
+// const airline = 'SkyUp Airline';
+// const airpline = 'Boeing 737';
+// console.log(airpline[0]);
+// console.log(airline[1]);
+// console.log(airline[2]);
+// console.log('SkyUp'[0]);
+// //length узнать длину строки
+// console.log(airpline.length);
+// console.log('Boeing 737'.length);
+// //indexOf() На какой позиции находится элемент (Если их несколько будет отображен индекс первого элемента)
+// console.log(airpline.indexOf(' '));
+// console.log(airpline.indexOf('7'));
+// //Будет отображен последний элемент
+// console.log(airpline.lastIndexOf('7'));
+// //Метод slice()замены нового массива, восстановление части исходного массива.
+// console.log(airpline.slice(7));
+// console.log(airpline.slice(0, 6));
+// console.log(airpline.slice(0, airpline.indexOf(' ')));
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airpline.slice(airpline.indexOf(' ') + 1));
+// console.log(airline.slice(3, -2));
+//
+// const checkMiddleSeat = function (seat) {
+//     //B and E are middle seat
+//     const seatLetter = seat.slice(-1);
+//     if (seatLetter === 'A' || seatLetter === 'E') {
+//         console.log('This is a middle seat');
+//     } else {
+//         console.log('This is not a middle seat');
+//     }
+// }
+// checkMiddleSeat('21A');
+// checkMiddleSeat('7B');
+// checkMiddleSeat('14E');
+
+// const x = new String('Hello!');
+// console.log(typeof x);
+// console.log(typeof x.slice(2));
+//
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+//
+// // const passengerName = 'lInDA';
+// // const passengerNameLower = passengerName.toLowerCase();
+// // const passengerNameFixed = passengerNameLower[0].toUpperCase() + passengerNameLower.slice(1);
+// // console.log(passengerNameFixed);
+//
+// function getPassengerName(stringName) {
+//     const passengerNameLower = stringName.toLowerCase();
+//     const passengerNameFixed = passengerNameLower[0].toUpperCase() + passengerNameLower.slice(1);
+//     return passengerNameFixed;
+// }
+// console.log(getPassengerName('lInDA'));
+//
+// //Email validation
+// const email = 'someemail@gmail.com';
+// const loginEmail = ' SomeEmail@Gmail.com \n';
+// //Метод trim() убирает пробелы в начале и конце строки
+// // const loginEmailNormalized = loginEmail.toLowerCase().trim();
+// // console.log(loginEmailNormalized);
+//
+// const loginEmailFixed = function(emailAdress) {
+//     const emailNormalized = emailAdress.toLowerCase().trim();
+//     (emailNormalized === email) ? console.log('email is correct') : console.log('email is not correct');;
+// };
+// loginEmailFixed(loginEmail);
+//
+// //Замена части строки
+// const ticketPriceEU = '197,23€';
+// //Метод replace() возвращает новую строку с некоторыми или всеми сопоставлениями с шаблоном, заменёнными на заменитель
+// const ticketPriceUS = ticketPriceEU.replace(',', '.').replace('€', '$');
+// console.log(ticketPriceUS);
+// //Замена всех символов (replaceAll) работает через консоль браузера
+// const announcement = 'All passengers of flight EG234 come to boarding door 18. Boarding door 18!';
+// const result = announcement.replaceAll('door', 'gate');
+// console.log(result);
+
+//Methods return boolean
+// console.log(airpline);
+// //includes метод проверяет содержится эта часть строки в основной строке
+// console.log(airpline.includes('737'));
+// console.log(airpline.includes('738'));
+// //Метод startsWith проверяет начинается ли строка с этой части строки
+// console.log(airpline.startsWith('Bo'));
+// console.log(airpline.startsWith('Do'));
+// //Метод endsWith проверяет заканчивается ли строка этой частью строки
+// console.log(airpline.endsWith('737'));
+// console.log(airpline.endsWith('748'));
+//
+// if (airpline.startsWith('Boeing')) {
+//     console.log('You gonna fly on Boeng!');
+// }
+//
+// //Exemple
+// const checkLuggage = function (luggage) {
+//     const luggageLower = luggage.toLowerCase();
+//     if (luggageLower.includes('gun') || luggageLower.includes('knife')) {
+//         console.log('You are not allowed on doard');
+//     } else {
+//         console.log('Welcome to the board!');
+//     }
+// };
+// checkLuggage('Food, jeans, socks and Swiss Knife');
+// checkLuggage('Laptop, and food');
+// checkLuggage('Camera, food, Gun for protection');
+
+
+//Метод split()принимает шаблон и делит его String на упорядоченный список подстрок путем поиска шаблона, помещает эти подстроки в массив и возвращает массив.
+// console.log('My+name+is+Youra'.split('+'));
+// console.log('My name is Youra'.split(' '));
+//
+// const MyName = 'ken suse';
+// const [firstName, lastName] = MyName.split(' ');
+// console.log(firstName, lastName);
+// //Метод join()создает и возвращает новую строку путем объединения всех элементов массива (или объекта, подобного массиву ), разделенных запятыми или заданной строкой-разделителем
+// console.log(['Mr.', firstName, lastName.toUpperCase()].join(' '));
+//
+//
+// const capitalizeName = function (names) {
+//     //Преобразуем строку в массив строк
+//     const nameSplit = names.split(' ');
+//     const namesCapitalizes = [];
+//     for (const n of nameSplit) {
+//         //перебераем слова в цикле и изменяем первую букву на заглавную добавляя в новый массив
+//         // namesCapitalizes.push(n[0].toUpperCase() + n.slice(1));
+//         namesCapitalizes.push(n.replace(n[0], n[0].toUpperCase()));
+//     }
+//     //Преобразуем массив в строку разделяя слова пробелом.
+//     console.log(namesCapitalizes.join(' '));
+// }
+// capitalizeName('ken suse');
+// capitalizeName('jack white tiger jr.');
+//
+// //Padding padStart() padEnd()
+// const message = 'Hi there!';
+// console.log(message.padStart(20, '_'));
+// console.log(message.padEnd(20, '_'));
+//
+// const maskCreditCard = function (cardNamber) {
+//     const strCardNamber = cardNamber + '';
+//     const last4 = strCardNamber.slice(-4);
+//     console.log(strCardNamber.length);
+//     console.log(last4.padStart(strCardNamber.length, '*'));
+// }
+// maskCreditCard(12345678910121);
+// maskCreditCard('1234567891011227');
+//
+// //Метод repeat()создает и возвращает новую строку, содержащую указанное количество копий строки, для которой он был вызван, объединенных вместе.
+// const greeting = 'Hi!';
+// console.log(greeting.repeat(50));
+//
+// const howMuchYouLoveSomebady = function(loveNamber) {
+//     console.log(`I love you ${'+'.repeat(loveNamber)}`);
+// }
+// howMuchYouLoveSomebady(10);
 
