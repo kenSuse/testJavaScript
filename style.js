@@ -2503,3 +2503,24 @@
 // }
 // howMuchYouLoveSomebady(10);
 
+
+
+//TASK4
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+    //Получаем введенное значение  в окно textarea по нажатию на button (по отслеживанию addEventListener)
+    const textStr = document.querySelector('textarea').value;
+    //Разбиваем слова на массив строк через \n
+    const textSplit = textStr.split('\n');
+    //В каждой строке массива через итерацию делаем буквы прописными и убираем пробелы добавляя измененные данные в новый массив
+    //С помощью метода split в цикле мы разделяем слова по параметру (’_’) и преобразуем в две отдельные строки.
+    //Затем во втором слове первую букву делаем заглавной и прикрепляем оставшиеся буквы слова к первому символу (заглавному символу)
+    for (const text of textSplit) {
+        const [first, second] = text.toLowerCase().trim().split('_');
+        // console.log(`${first}${second[0].toUpperCase() + second.slice(1)}`);
+        console.log(`${first}${second.replace(second[0], second[0].toUpperCase())}`);
+    }
+});
+
