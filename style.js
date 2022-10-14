@@ -2506,21 +2506,107 @@
 
 
 //TASK4
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+//
+// document.querySelector('button').addEventListener('click', function () {
+//     //Получаем введенное значение  в окно textarea по нажатию на button (по отслеживанию addEventListener)
+//     const textStr = document.querySelector('textarea').value;
+//     //Разбиваем слова на массив строк через \n
+//     const textSplit = textStr.split('\n');
+//     //В каждой строке массива через итерацию делаем буквы прописными и убираем пробелы добавляя измененные данные в новый массив
+//     //С помощью метода split в цикле мы разделяем слова по параметру (’_’) и преобразуем в две отдельные строки.
+//     //Затем во втором слове первую букву делаем заглавной и прикрепляем оставшиеся буквы слова к первому символу (заглавному символу)
+//     for (const text of textSplit) {
+//         const [first, second] = text.toLowerCase().trim().split('_');
+//         // console.log(`${first}${second[0].toUpperCase() + second.slice(1)}`);
+//         console.log(`${first}${second.replace(second[0], second[0].toUpperCase())}`);
+//     }
+// });
 
-document.querySelector('button').addEventListener('click', function () {
-    //Получаем введенное значение  в окно textarea по нажатию на button (по отслеживанию addEventListener)
-    const textStr = document.querySelector('textarea').value;
-    //Разбиваем слова на массив строк через \n
-    const textSplit = textStr.split('\n');
-    //В каждой строке массива через итерацию делаем буквы прописными и убираем пробелы добавляя измененные данные в новый массив
-    //С помощью метода split в цикле мы разделяем слова по параметру (’_’) и преобразуем в две отдельные строки.
-    //Затем во втором слове первую букву делаем заглавной и прикрепляем оставшиеся буквы слова к первому символу (заглавному символу)
-    for (const text of textSplit) {
-        const [first, second] = text.toLowerCase().trim().split('_');
-        // console.log(`${first}${second[0].toUpperCase() + second.slice(1)}`);
-        console.log(`${first}${second.replace(second[0], second[0].toUpperCase())}`);
+
+
+
+
+
+'use strict'
+//FUNCTION Больше о функциях
+
+//Параметры по умолчанию
+// const bookengs = [];
+// const makeBooking = function(flightNum, passengersNum = 1, price = passengersNum * 99) {
+//     //Параметры по умолчанию до ES6
+//     // passengersNum = passengersNum || 1;
+//     // price = price || 99;
+//
+//     const booking = {
+//         flightNum,
+//         passengersNum,
+//         price
+//     }
+//     console.log(booking);
+//     bookengs.push(booking);
+// };
+// makeBooking('QE123');
+// makeBooking('QE123', 3, 390);
+// makeBooking('QE123', 1);
+// makeBooking('QE123', 4);
+// makeBooking('QE123', undefined, 400);
+
+
+
+
+
+
+
+
+//Передача аргументов. Значения vs ссылки
+const flightNumber = 'BV328';
+const passenger1145 = {
+    firstName: 'Jack',
+    lastName: 'Brown',
+    passport: 128490,
+}
+const checkIn = function(flight, passenger) {
+    flight = 'bv328';
+    passenger.firstName = passenger.firstName.toLowerCase();
+    passenger.lastName = passenger.lastName.toLowerCase();
+
+    if(passenger.passport === 128490) {
+        console.log('welcome to the board!');
+    } else {
+        console.log('Incorrect passport!');
     }
-});
+}
+checkIn(flightNumber, passenger1145);
+//Когда мы передаем примитивное значение в функцию это тоже самое что передать копию переменной. Изменение в копии никак не воздействует на основную переменную.
+console.log(flightNumber);
+//Когда мы передаем объект (ссылочный тип) в функцию в качестве аргумента. В этом случае две переменные указывают на один и тот же объект.
+console.log(passenger1145);
 
+//Изменяем в функции свойство объекта устанавливая случайные цифры
+const chengePassportNumber = function(person) {
+    person.passport = Math.trunc(Math.random() * 100000000);
+}
+chengePassportNumber(passenger1145);
+//Передаем в метод checkIn изменений параметр объекта с помощью метода chengePassportNumber
+checkIn(flightNumber, passenger1145);
+//Выводим в консоль измененные данные объекта
+console.log(passenger1145);
+
+//В программирование есть два термина которые часто используются при работе с функциями это – передача по значению и передача по ссылки
+//В java script нет передачи по ссылки только передача по значению хотя и выглядит что это будто передача по ссылки
+//Ссылка которую мы передаем является значением. Значение которое содержит адрес в памяти.
+//То есть мы передаем ссылку в функцию, но мы передаем, не по ссылке, мы передаем ссылку, но не по ссылке.
+
+
+
+
+
+
+
+
+
+
+//Функции первого класса vs Функции высшего порядка
+ 
