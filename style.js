@@ -2529,7 +2529,11 @@
 
 
 
-'use strict'
+
+
+//CHAPTER 8
+
+// 'use strict'
 //FUNCTION Больше о функциях
 
 //Параметры по умолчанию
@@ -2557,42 +2561,40 @@
 
 
 
-
-
-
+// 'use strict'
 //Передача аргументов. Значения vs ссылки
-const flightNumber = 'BV328';
-const passenger1145 = {
-    firstName: 'Jack',
-    lastName: 'Brown',
-    passport: 128490,
-}
-const checkIn = function(flight, passenger) {
-    flight = 'bv328';
-    passenger.firstName = passenger.firstName.toLowerCase();
-    passenger.lastName = passenger.lastName.toLowerCase();
-
-    if(passenger.passport === 128490) {
-        console.log('welcome to the board!');
-    } else {
-        console.log('Incorrect passport!');
-    }
-}
-checkIn(flightNumber, passenger1145);
-//Когда мы передаем примитивное значение в функцию это тоже самое что передать копию переменной. Изменение в копии никак не воздействует на основную переменную.
-console.log(flightNumber);
-//Когда мы передаем объект (ссылочный тип) в функцию в качестве аргумента. В этом случае две переменные указывают на один и тот же объект.
-console.log(passenger1145);
-
-//Изменяем в функции свойство объекта устанавливая случайные цифры
-const chengePassportNumber = function(person) {
-    person.passport = Math.trunc(Math.random() * 100000000);
-}
-chengePassportNumber(passenger1145);
-//Передаем в метод checkIn изменений параметр объекта с помощью метода chengePassportNumber
-checkIn(flightNumber, passenger1145);
-//Выводим в консоль измененные данные объекта
-console.log(passenger1145);
+// const flightNumber = 'BV328';
+// const passenger1145 = {
+//     firstName: 'Jack',
+//     lastName: 'Brown',
+//     passport: 128490,
+// }
+// const checkIn = function(flight, passenger) {
+//     flight = 'bv328';
+//     passenger.firstName = passenger.firstName.toLowerCase();
+//     passenger.lastName = passenger.lastName.toLowerCase();
+//
+//     if(passenger.passport === 128490) {
+//         console.log('welcome to the board!');
+//     } else {
+//         console.log('Incorrect passport!');
+//     }
+// }
+// checkIn(flightNumber, passenger1145);
+// //Когда мы передаем примитивное значение в функцию это тоже самое что передать копию переменной. Изменение в копии никак не воздействует на основную переменную.
+// console.log(flightNumber);
+// //Когда мы передаем объект (ссылочный тип) в функцию в качестве аргумента. В этом случае две переменные указывают на один и тот же объект.
+// console.log(passenger1145);
+//
+// //Изменяем в функции свойство объекта устанавливая случайные цифры
+// const chengePassportNumber = function(person) {
+//     person.passport = Math.trunc(Math.random() * 100000000);
+// }
+// chengePassportNumber(passenger1145);
+// //Передаем в метод checkIn изменений параметр объекта с помощью метода chengePassportNumber
+// checkIn(flightNumber, passenger1145);
+// //Выводим в консоль измененные данные объекта
+// console.log(passenger1145);
 
 //В программирование есть два термина которые часто используются при работе с функциями это – передача по значению и передача по ссылки
 //В java script нет передачи по ссылки только передача по значению хотя и выглядит что это будто передача по ссылки
@@ -2605,8 +2607,168 @@ console.log(passenger1145);
 
 
 
-
-
-
 //Функции первого класса vs Функции высшего порядка
- 
+// Java script Относится к функциям как к гражданам первого класса это значит что js  обращается с функциями как со значениями.
+// Функции это всего лишь  другой тип объектов в js и так как объекты являются значениями, функции так же являются значениями.
+// •	Функции можно помещать в переменные или свойство объектов (функция в свойстве объекта называется методом)
+// •	Можно передавать функции как аргументы в другие функции
+// •	Можно возвращать функции из других функций
+// •	Можно вызывать методы для функций
+//
+// То что в js есть функции первого класса, делает для нас возможным писать и использовать так называемые функции высшего порядка
+//
+// Функция высшего порядка это функция которая может принимать другую функцию в качестве аргумента либо возвращать новую функцию
+// •	Функция может принимать другую функцию как аргумент (функция которая передается в качестве аргумента называется Callback функция) она называется так потому что она будет вызвана позже и она будет вызвана функцией высшего порядка
+// •	Функция может возвращать другую функцию
+// Функции первого класса это фича языка программирования она означает что все функции в этом языке являются значениями. На практике не существует функции первого класса  это просто концепция на практике существуют функции высшего порядка которые возможны только в том языке в котором поддерживается фича функции первого класса
+
+
+
+
+
+
+// 'use strict'
+//Функции Принимающие Callback Функции
+
+//Функции низшего порядка
+// const removeSpaces = function (text) {
+//     return text.replace(/ /g, '').toLowerCase();
+//     // return text.replaceAll(' ', '').toLowerCase();
+// }
+// //Функции низшего порядка
+// const upperFirstWord = function(text) {
+//     const [firstText, ...nextText] = text.split(' ');
+//     return [firstText.toUpperCase(), ...nextText].join(' ');
+// }
+// //Функции высшего порядка оперирует высшим порядком обструкции оставляя детали более низкого уровня для функций низшего порядка
+// const converter = function(str, func) {
+//     console.log(`The original text: ${str}`);
+//     console.log(`The converter text: ${func(str)}`);
+//
+//     console.log(`Converted by: ${func.name}`);
+// }
+// converter('Hello to everyone!', upperFirstWord);
+// converter('Hello to everyone!', removeSpaces);
+//
+// //arrow function
+// const twice = num => console.log(num * 2);
+// [1, 2, 3].forEach(twice);
+
+
+
+
+
+
+
+// 'use strict'
+// // Функции Возвращающие Функции
+// const greet = function(greetingText) {
+//     return function(name) {
+//         console.log(`${greetingText} ${name}`);
+//     }
+// }
+// //arrow function
+// const arrGreet = greetingText => name => console.log(`${greetingText} ${name}`);
+//
+// const hi = greet('Hi!');
+// hi('Jack');
+// hi('diana');
+// hi('Mick');
+// //В функцию greet с аргументом ('Hi!') передаем имя ('ken')
+// greet('Hi!')('ken');
+// arrGreet('Hi!')('Suse');
+
+
+
+
+
+'use strict'
+//Методы call() и apply()
+// const book = function(flightNumber, passengerName) {
+//     console.log(`${passengerName} has booked a ticket on ${this.airlineName} flight ${this.iataCode}${flightNumber}`);
+//     this.bookings.push({flight: `${this.iataCode}${flightNumber}`, passengerName});
+// }
+// const airline1 = {
+//     airlineName: 'skyUp',
+//     iataCode: 'SU',
+//     bookings: [],
+// };
+//
+// const airline2 = {
+//     airlineName: 'EuroFlights',
+//     iataCode: 'EF',
+//     bookings: [],
+//
+// };
+
+//Если метод book находится в объекте airline1
+// const book = airline1.book;
+//С помощью метода call можно явно указать this в аргументе метода
+// book.call(airline2, 345, 'Linda Wilams');
+// console.log(airline2);
+// book.call(airline1, 111, 'Bob Smith');
+// console.log(airline1);
+
+
+// //С помощью метода call() можно явно указать this объекта в аргументе метода
+// book.call(airline1,  345, 'Linda Wilams');
+// console.log(airline1);
+// book.call(airline2, 217, 'Bob Smith');
+// console.log(airline2);
+//
+// //Метод apply() передается массив аргуменотв
+// //В современном js метод aplly не используется (Старый подход)
+// const flightDate= [111, 'Nick Wong'];
+// book.apply(airline2, flightDate);
+// console.log(airline2);
+//
+// //Можно использовать оператор spread чтобы передать массив в аргументы метода call
+// book.call(airline1, ...flightDate);
+// console.log(airline1);
+
+
+
+
+
+
+//Метод bind()
+//bind не вызывает сразу функцию а возвращает новую функцию где уже связывается ключевое слово this и устанавливается значение для этого ключевого слово this то что мы передаем в метод bind
+const airline1 = {
+    airlineName: 'skyUp',
+    iataCode: 'SU',
+    bookings: [],
+    book(flightNumber, passengerName) {
+        console.log(`${passengerName} has booked a ticket on ${this.airlineName} flight ${this.iataCode}${flightNumber}`);
+        this.bookings.push({ flight: `${this.iataCode}${flightNumber}`, passengerName });
+    },
+};
+
+const airline2 = {
+    airlineName: 'EuroFlights',
+    iataCode: 'EF',
+    bookings: [],
+
+};
+
+const airline3 = {
+    airlineName: 'USFligths',
+    iataCode: 'USF',
+    bookings: [],
+};
+
+const book = airline1.book;
+
+const bookAirline2 = book.bind(airline2);
+bookAirline2(327, 'ken Suse');
+console.log(airline2);
+
+const bookAirline3 = book.bind(airline3);
+bookAirline3(375, 'John Doe');
+console.log(airline3);
+
+//В аргументах можно указывать не только this но и параметр метода book
+const bookAirline3Flight21 = book.bind(airline3, 21);
+bookAirline3Flight21('Jack Smith');
+bookAirline3Flight21('Lana Delray');
+
+//bind with event listeners (Использование метода bind вместе с обработчиком событий)
